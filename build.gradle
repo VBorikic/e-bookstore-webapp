@@ -1,0 +1,27 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'war'
+apply plugin: 'jetty'
+
+sourceCompatibility = 1.7
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
+}
+
+war.archiveName = 'blog1.war'
+
+jettyRun.contextPath = 'blog1'
+jettyRunWar.contextPath = 'blog1'
+
+jettyRun.stopPort = 8090
+jettyRun.stopKey = 'stopKey'
+jettyRunWar.stopPort = 8090
+jettyRunWar.stopKey = 'stopKey'
+jettyStop.stopPort = 8090
+jettyStop.stopKey = 'stopKey'
