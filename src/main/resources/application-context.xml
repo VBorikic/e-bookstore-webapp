@@ -4,5 +4,8 @@
     <import resource="classpath:bookstore/core-context.xml" />
 	<import resource="classpath:bookstore/dao-context.xml" />
     <import resource="classpath:bookstore/services-context.xml" />
-
+    
+    <!-- 
+     <import resource="classpath:bookstore/rest-context.xml" />
+ -->
 </beans>

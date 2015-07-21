@@ -30,8 +30,13 @@
 		</property>
 		<property name="annotatedClasses">
 			<list>
-				<value>rs.pstech.workshop.javaweb.blog.model.Blog</value>
-				<value>rs.pstech.workshop.javaweb.blog.model.Comment</value>
+			<!--  
+				<value>bookstore.model.Blog</value>
+				<value>bookstore.model.Comment</value>
+				-->
+				<value>bookstore.model.Autor</value>
+				<value>bookstore.model.Knjiga</value>
+				<value>bookstore.model.Izdavac</value>
 			</list>
 		</property>
 	</bean>
@@ -45,14 +50,17 @@
 	<tx:annotation-driven transaction-manager="transactionManager" />
 
     <!-- DAO services -->
-    <bean id="blogDao" class="rs.pstech.workshop.javaweb.blog.dao.hibernate.BlogDaoImpl">
+   
+   <bean id="autorDao" class="bookstore.dao.hibernate.AutorDaoImpl">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
-    
-    <bean id="commentDao" class="rs.pstech.workshop.javaweb.blog.dao.hibernate.CommentDaoImpl">
+    <bean id="izdavacDao" class="bookstore.dao.hibernate.IzdavacDaoImpl">
         <property name="sessionFactory" ref="sessionFactory" />
-        <property name="blogDao" ref="blogDao" />
     </bean>
-
+     <bean id="knjigaDao" class="bookstore.dao.hibernate.KnjigaDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+          <property name="autorDao" ref="autorDao" />
+            <property name="izdavacDao" ref="izdavacDao" />
+    </bean>
 
 </beans>

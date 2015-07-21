@@ -6,7 +6,7 @@
 		<property name="ignoreUnresolvablePlaceholders" value="true" />
 		<property name="locations">
 			<list>
-				<value>classpath:blog/application.properties</value>
+				<value>classpath:bookstore/application.properties</value>
 				<!-- Installer or user-provided defaults -->
 				<value>classpath*:application-global.properties</value>
 			</list>
