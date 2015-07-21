@@ -58,8 +58,8 @@ configurations {
 
 war.archiveName = 'blog3.war'
 
-jettyRun.contextPath = 'blog3'
-jettyRunWar.contextPath = 'blog3'
+jettyRun.contextPath = 'bookstore'
+jettyRunWar.contextPath = 'bookstore'
 
 jettyRun.stopPort = 8090
 jettyRun.stopKey = 'stopKey'
