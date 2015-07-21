@@ -62,5 +62,16 @@
           <property name="autorDao" ref="autorDao" />
             <property name="izdavacDao" ref="izdavacDao" />
     </bean>
+    <bean id="korisnikDao" class="bookstore.dao.hibernate.KorisnikDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="narudzbenicaDao" class="bookstore.dao.hibernate.NarudzbenicaDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+        <property name="korisnikDao" ref="korisnikDao" />
+    </bean>
+    <bean id="artikalDao" class="bookstore.dao.hibernate.ArtikalDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+         <property name="narudzbenicaDao" ref="narudzbenicaDao" />
+    </bean>
 
 </beans>

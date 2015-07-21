@@ -7,6 +7,9 @@
         <property name="autorDao" ref="autorDao" />
         <property name="izdavacDao" ref="izdavacDao" />
             <property name="knjigaDao" ref="knjigaDao" />
+            <property name="korisnikDao" ref="korisnikDao" />
+            <property name="narudzbenicaDao" ref="narudzbenicaDao" />
+            <property name="artikalDao" ref="artikalDao" />
     </bean>
 
 </beans>

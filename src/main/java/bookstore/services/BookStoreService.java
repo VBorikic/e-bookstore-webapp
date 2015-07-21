@@ -13,4 +13,6 @@ public interface BookStoreService {
 	public List<Izdavac> vratiSveIzdavace();
 
 	public Knjiga unesiNovuKnjigu(Knjiga knjiga);
+
+	// da se dodaju metode koje trebaju
 }
