@@ -15,9 +15,9 @@ public class NarudzbenicaDaoImpl implements NarudzbenicaDao {
 	protected KorisnikDao korisnikDao;
 
 	@Override
-	public Narudzbenica napraviNarudzbenicu(Narudzbenica n) {
+	public Long napraviNarudzbenicu(Narudzbenica n) {
 		// TODO Auto-generated method stub
-		return null;
+		return (Long) sessionFactory.getCurrentSession().save(n);
 	}
 
 	// settet i getter

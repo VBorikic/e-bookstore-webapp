@@ -17,6 +17,8 @@ public interface BookStoreService {
 
 	public Knjiga unesiNovuKnjigu(Knjiga knjiga);
 
+	public List<Knjiga> vratiSveKnjige();
+
 	// da se dodaju metode koje trebaju
 	public Artikal ubaciArtikal(Artikal a);
 

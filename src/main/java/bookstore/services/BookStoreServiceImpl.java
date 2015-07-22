@@ -34,22 +34,22 @@ public class BookStoreServiceImpl implements BookStoreService {
 	@Override
 	@Transactional(readOnly = true)
 	public List<Autor> vratiSveAutore() {
-		// TODO Auto-generated method stub
-		return null;
+		return autorDao.vratiSveAutore();
 	}
 
 	@Override
 	@Transactional(readOnly = true)
 	public List<Izdavac> vratiSveIzdavace() {
 		// TODO Auto-generated method stub
-		return null;
+		return izdavacDao.vratiSveIzdavace();
 	}
 
 	@Override
 	@Transactional
 	public Knjiga unesiNovuKnjigu(Knjiga knjiga) {
 		// TODO Auto-generated method stub
-		return null;
+		Long isbn = knjigaDao.unesiNovuKnjigu(knjiga);
+		return knjigaDao.vratiKnigu(isbn);
 	}
 
 	@Override
@@ -69,6 +69,12 @@ public class BookStoreServiceImpl implements BookStoreService {
 	@Override
 	@Transactional
 	public Narudzbenica napraviNarudzbenicu(Narudzbenica n) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Knjiga> vratiSveKnjige() {
 		// TODO Auto-generated method stub
 		return null;
 	}

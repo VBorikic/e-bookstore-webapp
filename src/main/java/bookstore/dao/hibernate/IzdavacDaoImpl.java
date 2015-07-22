@@ -16,8 +16,7 @@ public class IzdavacDaoImpl implements IzdavacDao {
 
 	@Override
 	public List<Izdavac> vratiSveIzdavace() {
-		// TODO Auto-generated method stub
-		return null;
+		return (List<Izdavac>) sessionFactory.getCurrentSession().createQuery("from izdavac").list();
 	}
 
 	// setter and getter

@@ -66,4 +66,41 @@ public class ArtikalPK implements Serializable {
 				+ "]";
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((artikalId == null) ? 0 : artikalId.hashCode());
+		result = prime * result + ((knjigaID == null) ? 0 : knjigaID.hashCode());
+		result = prime * result + ((narudzbenicaID == null) ? 0 : narudzbenicaID.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ArtikalPK other = (ArtikalPK) obj;
+		if (artikalId == null) {
+			if (other.artikalId != null)
+				return false;
+		} else if (!artikalId.equals(other.artikalId))
+			return false;
+		if (knjigaID == null) {
+			if (other.knjigaID != null)
+				return false;
+		} else if (!knjigaID.equals(other.knjigaID))
+			return false;
+		if (narudzbenicaID == null) {
+			if (other.narudzbenicaID != null)
+				return false;
+		} else if (!narudzbenicaID.equals(other.narudzbenicaID))
+			return false;
+		return true;
+	}
+
 }

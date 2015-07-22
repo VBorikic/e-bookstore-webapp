@@ -12,9 +12,9 @@ public class KorisnikDaoImpl implements KorisnikDao {
 	protected SessionFactory sessionFactory;
 
 	@Override
-	public Korisnik napraviKorisnika(Korisnik k) {
+	public Long napraviKorisnika(Korisnik k) {
 		// TODO Auto-generated method stub
-		return null;
+		return (Long) sessionFactory.getCurrentSession().save(k);
 	}
 
 	public SessionFactory getSessionFactory() {

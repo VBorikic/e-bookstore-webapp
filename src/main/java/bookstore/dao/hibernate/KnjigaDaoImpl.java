@@ -1,5 +1,7 @@
 package bookstore.dao.hibernate;
 
+import java.util.List;
+
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,6 +19,16 @@ public class KnjigaDaoImpl implements KnjigaDao {
 
 	@Override
 	public Long unesiNovuKnjigu(Knjiga knjiga) {
+		return (Long) sessionFactory.getCurrentSession().save(knjiga);
+	}
+
+	@Override
+	public List<Knjiga> vratiSveKnjige() {
+		return (List<Knjiga>) sessionFactory.getCurrentSession().createQuery("from knjiga").list();
+	}
+
+	@Override
+	public Knjiga vratiKnigu(Long isbn) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -16,9 +16,8 @@ public class ArtikalDaoImpl implements ArtikalDao {
 	protected KnjigaDao knjigaDao;
 
 	@Override
-	public Artikal ubaciArtikal(Artikal a) {
-		// TODO Auto-generated method stub
-		return null;
+	public Long ubaciArtikal(Artikal a) {
+		return (Long) sessionFactory.getCurrentSession().save(a);
 	}
 
 	// setter i getter

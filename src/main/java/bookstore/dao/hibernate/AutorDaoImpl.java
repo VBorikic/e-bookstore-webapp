@@ -17,7 +17,7 @@ public class AutorDaoImpl implements AutorDao {
 	@Override
 	public List<Autor> vratiSveAutore() {
 
-		return null;
+		return (List<Autor>) sessionFactory.getCurrentSession().createQuery("from autor").list();
 	}
 
 	public SessionFactory getSessionFactory() {

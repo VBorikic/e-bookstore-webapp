@@ -4,5 +4,5 @@ import bookstore.model.Narudzbenica;
 
 public interface NarudzbenicaDao {
 
-	public Narudzbenica napraviNarudzbenicu(Narudzbenica n);
+	public Long napraviNarudzbenicu(Narudzbenica n);
 }

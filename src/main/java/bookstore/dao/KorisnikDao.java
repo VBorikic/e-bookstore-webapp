@@ -4,5 +4,5 @@ import bookstore.model.Korisnik;
 
 public interface KorisnikDao {
 
-	public Korisnik napraviKorisnika(Korisnik k);
+	public Long napraviKorisnika(Korisnik k);
 }
