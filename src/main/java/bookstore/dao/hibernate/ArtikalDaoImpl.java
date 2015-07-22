@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import bookstore.dao.ArtikalDao;
+import bookstore.dao.KnjigaDao;
 import bookstore.dao.NarudzbenicaDao;
 import bookstore.model.Artikal;
 
@@ -12,6 +13,7 @@ public class ArtikalDaoImpl implements ArtikalDao {
 	Logger logger = LoggerFactory.getLogger(AutorDaoImpl.class);
 	protected SessionFactory sessionFactory;
 	protected NarudzbenicaDao narudzbenicaDao;
+	protected KnjigaDao knjigaDao;
 
 	@Override
 	public Artikal ubaciArtikal(Artikal a) {
@@ -34,6 +36,14 @@ public class ArtikalDaoImpl implements ArtikalDao {
 
 	public void setNarudzbenicaDao(NarudzbenicaDao narudzbenicaDao) {
 		this.narudzbenicaDao = narudzbenicaDao;
+	}
+
+	public KnjigaDao getKnjigaDao() {
+		return knjigaDao;
+	}
+
+	public void setKnjigaDao(KnjigaDao knjigaDao) {
+		this.knjigaDao = knjigaDao;
 	}
 
 }

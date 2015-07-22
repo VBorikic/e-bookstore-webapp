@@ -7,7 +7,6 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,12 +19,12 @@ public class Artikal implements Serializable {
 	@Column(name = "broj_kupljenih_knjiga")
 	private int brojKupljenihKnjiga;
 
-	@OneToOne
-	@JoinColumn(name = "knjiga_id")
+	@ManyToOne
+	@JoinColumn(name = "knjiga_id", insertable = false, updatable = false)
 	private Knjiga knjiga;
 
 	@ManyToOne
-	@JoinColumn(name = "narudzbenica_id")
+	@JoinColumn(name = "narudzbenica_id", insertable = false, updatable = false)
 	private Narudzbenica narudzbenica;
 
 	public Artikal(ArtikalPK artikalPK) {
@@ -73,10 +72,6 @@ public class Artikal implements Serializable {
 
 	public void setNarudzbenica(Narudzbenica narudzbenica) {
 		this.narudzbenica = narudzbenica;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 
 }

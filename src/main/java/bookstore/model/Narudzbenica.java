@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -27,6 +29,10 @@ public class Narudzbenica implements Serializable {
 
 	@OneToMany(mappedBy = "narudzbenica", fetch = FetchType.EAGER)
 	List<Artikal> listaArtikala = new ArrayList<>();
+
+	@ManyToOne
+	@JoinColumn(name = "korisnik_id")
+	private Korisnik korisnik;
 
 	// ubaci Korisnika
 
@@ -58,6 +64,14 @@ public class Narudzbenica implements Serializable {
 
 	public void setListaArtikala(List<Artikal> listaArtikala) {
 		this.listaArtikala = listaArtikala;
+	}
+
+	public Korisnik getKorisnikDao() {
+		return korisnik;
+	}
+
+	public void setKorisnikDao(Korisnik korisnikDao) {
+		this.korisnik = korisnikDao;
 	}
 
 	@Override

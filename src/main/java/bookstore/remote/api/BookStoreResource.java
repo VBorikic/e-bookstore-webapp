@@ -10,9 +10,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import bookstore.model.Artikal;
 import bookstore.model.Autor;
 import bookstore.model.Izdavac;
 import bookstore.model.Knjiga;
+import bookstore.model.Korisnik;
+import bookstore.model.Narudzbenica;
 import bookstore.services.BookStoreService;
 
 @RestController
@@ -37,6 +40,24 @@ public class BookStoreResource {
 	public @ResponseBody Knjiga unesiKnjigu(@RequestBody Knjiga k) {
 		return bookStoreService.unesiNovuKnjigu(k);
 
+	}
+
+	@RequestMapping(method = RequestMethod.POST)
+	public @ResponseBody Artikal ubaciArtikal(@RequestBody Artikal a) {
+
+		return bookStoreService.ubaciArtikal(a);
+	}
+
+	@RequestMapping(method = RequestMethod.POST)
+	public @ResponseBody Korisnik napraviKorisnika(@RequestBody Korisnik k) {
+
+		return bookStoreService.napraviKorisnika(k);
+	}
+
+	@RequestMapping(method = RequestMethod.POST)
+	public @ResponseBody Narudzbenica napraviNarudzbenicu(@RequestBody Narudzbenica n) {
+
+		return bookStoreService.napraviNarudzbenicu(n);
 	}
 
 	// setteri i getteri

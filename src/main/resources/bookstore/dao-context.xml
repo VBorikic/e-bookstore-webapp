@@ -37,6 +37,9 @@
 				<value>bookstore.model.Autor</value>
 				<value>bookstore.model.Knjiga</value>
 				<value>bookstore.model.Izdavac</value>
+				<value>bookstore.model.Artikal</value>
+                <value>bookstore.model.Narudzbenica</value>
+                <value>bookstore.model.Korisnik</value>
 			</list>
 		</property>
 	</bean>
@@ -61,6 +64,7 @@
         <property name="sessionFactory" ref="sessionFactory" />
           <property name="autorDao" ref="autorDao" />
             <property name="izdavacDao" ref="izdavacDao" />
+            
     </bean>
     <bean id="korisnikDao" class="bookstore.dao.hibernate.KorisnikDaoImpl">
         <property name="sessionFactory" ref="sessionFactory" />
@@ -72,6 +76,7 @@
     <bean id="artikalDao" class="bookstore.dao.hibernate.ArtikalDaoImpl">
         <property name="sessionFactory" ref="sessionFactory" />
          <property name="narudzbenicaDao" ref="narudzbenicaDao" />
+          <property name="knjigaDao" ref="knjigaDao" />
     </bean>
 
 </beans>

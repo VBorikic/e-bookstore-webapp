@@ -12,9 +12,12 @@ import bookstore.dao.IzdavacDao;
 import bookstore.dao.KnjigaDao;
 import bookstore.dao.KorisnikDao;
 import bookstore.dao.NarudzbenicaDao;
+import bookstore.model.Artikal;
 import bookstore.model.Autor;
 import bookstore.model.Izdavac;
 import bookstore.model.Knjiga;
+import bookstore.model.Korisnik;
+import bookstore.model.Narudzbenica;
 
 public class BookStoreServiceImpl implements BookStoreService {
 
@@ -45,6 +48,27 @@ public class BookStoreServiceImpl implements BookStoreService {
 	@Override
 	@Transactional
 	public Knjiga unesiNovuKnjigu(Knjiga knjiga) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	@Transactional
+	public Artikal ubaciArtikal(Artikal a) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	@Transactional
+	public Korisnik napraviKorisnika(Korisnik k) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	@Transactional
+	public Narudzbenica napraviNarudzbenicu(Narudzbenica n) {
 		// TODO Auto-generated method stub
 		return null;
 	}

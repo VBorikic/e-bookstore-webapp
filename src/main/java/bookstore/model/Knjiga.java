@@ -1,7 +1,9 @@
 package bookstore.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -29,6 +32,9 @@ public class Knjiga implements Serializable {
 	@Column
 	private String zanr;
 
+	@Column(length = 2000)
+	private String opis;
+
 	@Temporal(TemporalType.DATE)
 	@Column(name = "godina_izdanja")
 	private Date godinaIzdanja;
@@ -46,6 +52,9 @@ public class Knjiga implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "izdavac_id")
 	private Izdavac izdavac;
+
+	@OneToMany(mappedBy = "knjiga")
+	private List<Artikal> listaArtikala = new ArrayList<>();
 
 	public Knjiga() {
 		super();
@@ -106,6 +115,30 @@ public class Knjiga implements Serializable {
 
 	public void setAutor(Autor autor) {
 		this.autor = autor;
+	}
+
+	public String getOpis() {
+		return opis;
+	}
+
+	public void setOpis(String opis) {
+		this.opis = opis;
+	}
+
+	public Izdavac getIzdavac() {
+		return izdavac;
+	}
+
+	public void setIzdavac(Izdavac izdavac) {
+		this.izdavac = izdavac;
+	}
+
+	public List<Artikal> getListaArtikala() {
+		return listaArtikala;
+	}
+
+	public void setListaArtikala(List<Artikal> listaArtikala) {
+		this.listaArtikala = listaArtikala;
 	}
 
 	@Override

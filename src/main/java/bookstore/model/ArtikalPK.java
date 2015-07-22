@@ -9,7 +9,7 @@ import javax.persistence.GeneratedValue;
 
 @Embeddable
 public class ArtikalPK implements Serializable {
-
+	private static final long serialVersionUID = 1L;
 	@Basic(optional = false)
 	@Column(name = "narudzbenica_id")
 	private Long narudzbenicaID;

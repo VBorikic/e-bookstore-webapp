@@ -31,9 +31,12 @@ public class Korisnik implements Serializable {
 	private String userName;
 
 	@Column
+	private boolean isAdmin;
+
+	@Column
 	private String password;
 
-	@OneToMany(mappedBy = "narudzbenica_id", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "korisnik", fetch = FetchType.EAGER)
 	private List<Narudzbenica> listaNarudzbenica = new ArrayList<>();
 
 	public Korisnik() {
@@ -87,6 +90,14 @@ public class Korisnik implements Serializable {
 
 	public void setListaNarudzbenica(List<Narudzbenica> listaNarudzbenica) {
 		this.listaNarudzbenica = listaNarudzbenica;
+	}
+
+	public boolean isAdmin() {
+		return isAdmin;
+	}
+
+	public void setAdmin(boolean isAdmin) {
+		this.isAdmin = isAdmin;
 	}
 
 	@Override
