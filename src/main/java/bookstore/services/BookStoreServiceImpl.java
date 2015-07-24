@@ -13,6 +13,7 @@ import bookstore.dao.KnjigaDao;
 import bookstore.dao.KorisnikDao;
 import bookstore.dao.NarudzbenicaDao;
 import bookstore.model.Artikal;
+import bookstore.model.ArtikalPK;
 import bookstore.model.Autor;
 import bookstore.model.Izdavac;
 import bookstore.model.Knjiga;
@@ -55,28 +56,46 @@ public class BookStoreServiceImpl implements BookStoreService {
 	@Override
 	@Transactional
 	public Artikal ubaciArtikal(Artikal a) {
+		ArtikalPK artikalID = artikalDao.ubaciArtikal(a);
+		return artikalDao.vratiArtikal(artikalID);
+	}
+
+	@Override
+	public Artikal vratiArtikal(ArtikalPK a_id) {
 		// TODO Auto-generated method stub
-		return null;
+		return artikalDao.vratiArtikal(a_id);
 	}
 
 	@Override
 	@Transactional
 	public Korisnik napraviKorisnika(Korisnik k) {
-		// TODO Auto-generated method stub
-		return null;
+		Long korisnik_id = korisnikDao.napraviKorisnika(k);
+		return korisnikDao.vratiKorisnika(korisnik_id);
 	}
 
 	@Override
 	@Transactional
 	public Narudzbenica napraviNarudzbenicu(Narudzbenica n) {
+		Long na_id = narudzbenicaDao.napraviNarudzbenicu(n);
+		return narudzbenicaDao.vratiNarudzbenicu(na_id);
+	}
+
+	@Override
+	public Narudzbenica vratiNarudzbenicu(Long nar_id) {
 		// TODO Auto-generated method stub
-		return null;
+		return narudzbenicaDao.vratiNarudzbenicu(nar_id);
 	}
 
 	@Override
 	public List<Knjiga> vratiSveKnjige() {
 		// TODO Auto-generated method stub
-		return null;
+		return knjigaDao.vratiSveKnjige();
+	}
+
+	@Override
+	public Knjiga vratiKnjigu(Long isbn) {
+		// TODO Auto-generated method stub
+		return knjigaDao.vratiKnigu(isbn);
 	}
 
 	// setters and getters

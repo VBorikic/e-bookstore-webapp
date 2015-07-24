@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -35,8 +36,9 @@ public class Korisnik implements Serializable {
 
 	@Column
 	private String password;
-
-	@OneToMany(mappedBy = "korisnik", fetch = FetchType.EAGER)
+	// ovako kako je kada se korisnik obrise narudzbenica ostaje radi cuvanja
+	// podataka o kupovini
+	@OneToMany(mappedBy = "korisnik", fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	private List<Narudzbenica> listaNarudzbenica = new ArrayList<>();
 
 	public Korisnik() {

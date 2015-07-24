@@ -17,6 +17,11 @@ public class KorisnikDaoImpl implements KorisnikDao {
 		return (Long) sessionFactory.getCurrentSession().save(k);
 	}
 
+	@Override
+	public Korisnik vratiKorisnika(Long korisnik_id) {
+		return (Korisnik) sessionFactory.getCurrentSession().get(Korisnik.class, korisnik_id);
+	}
+
 	public SessionFactory getSessionFactory() {
 		return sessionFactory;
 	}

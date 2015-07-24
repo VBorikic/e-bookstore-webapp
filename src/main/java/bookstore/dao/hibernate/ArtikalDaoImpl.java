@@ -8,6 +8,7 @@ import bookstore.dao.ArtikalDao;
 import bookstore.dao.KnjigaDao;
 import bookstore.dao.NarudzbenicaDao;
 import bookstore.model.Artikal;
+import bookstore.model.ArtikalPK;
 
 public class ArtikalDaoImpl implements ArtikalDao {
 	Logger logger = LoggerFactory.getLogger(AutorDaoImpl.class);
@@ -16,8 +17,15 @@ public class ArtikalDaoImpl implements ArtikalDao {
 	protected KnjigaDao knjigaDao;
 
 	@Override
-	public Long ubaciArtikal(Artikal a) {
-		return (Long) sessionFactory.getCurrentSession().save(a);
+	public ArtikalPK ubaciArtikal(Artikal a) {
+		return (ArtikalPK) sessionFactory.getCurrentSession().save(a);
+	}
+
+	// ovde moze nastati greska kada treba da se uzme artikal
+	@Override
+	public Artikal vratiArtikal(ArtikalPK artikal_id) {
+		// TODO Auto-generated method stub
+		return (Artikal) sessionFactory.getCurrentSession().get(Artikal.class, artikal_id);
 	}
 
 	// setter i getter

@@ -30,7 +30,7 @@ public class KnjigaDaoImpl implements KnjigaDao {
 	@Override
 	public Knjiga vratiKnigu(Long isbn) {
 		// TODO Auto-generated method stub
-		return null;
+		return (Knjiga) sessionFactory.getCurrentSession().get(Knjiga.class, isbn);
 	}
 
 	// setters and getters
