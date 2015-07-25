@@ -39,6 +39,9 @@ dependencies {
     compile "org.postgresql:postgresql:$postgresqlDatabaseVersion"
     testCompile "com.h2database:h2:$h2DatabaseVersion"
     
+    //mySQL connector
+    compile 'mysql:mysql-connector-java:5.1.6'
+    
     // jcl-over-slf4j used to bridge Spring's commons-logging to slf4j
     compile "org.slf4j:jcl-over-slf4j:$slf4jVersion"
     compile "ch.qos.logback:logback-classic:$logbackVersion"
