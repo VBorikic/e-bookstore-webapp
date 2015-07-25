@@ -20,6 +20,12 @@ public class NarudzbenicaDaoImpl implements NarudzbenicaDao {
 		return (Long) sessionFactory.getCurrentSession().save(n);
 	}
 
+	@Override
+	public Narudzbenica vratiNarudzbenicu(Long nar_id) {
+		// TODO Auto-generated method stub
+		return (Narudzbenica) sessionFactory.getCurrentSession().get(Narudzbenica.class, nar_id);
+	}
+
 	// settet i getter
 	public SessionFactory getSessionFactory() {
 		return sessionFactory;

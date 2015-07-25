@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -34,8 +35,7 @@ public class Autor implements Serializable {
 	@Column(name = "datum_rodjenja")
 	private Date datumRodjenja;
 
-	// TO DO - uradi povezivanje sa knjigom i set get
-	@OneToMany(mappedBy = "autor", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "autor", fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	private List<Knjiga> listaKnjiga = new ArrayList<>();
 
 	public Autor() {

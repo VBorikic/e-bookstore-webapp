@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -27,7 +28,7 @@ public class Narudzbenica implements Serializable {
 	@Column(name = "suma_cene")
 	private double sumaCene;
 
-	@OneToMany(mappedBy = "narudzbenica", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "narudzbenica", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	List<Artikal> listaArtikala = new ArrayList<>();
 
 	@ManyToOne
