@@ -1,6 +1,14 @@
-angular.module('blogApp.services', []).
-factory('blogService', function($resource) {
-	
-	return $resource('service/blog/:blogId', {blogId: '@blogId'});
+var servisi = angular.module('services', []);
 
-});
+//services.factory('blogService', function($resource) {
+//	
+//	return $resource('service/blog/:blogId', {blogId: '@blogId'});
+////	return $resource('service/knjige/:blogId', {blogId: '@blogId'});
+//});
+
+servisi.factory('knjigaService', function($resource) {
+	
+//	return $resource('service/blog/:blogId', {blogId: '@blogId'});
+	return $resource('service/knjige/:blogId', {blogId: '@blogId'});
+		});
+

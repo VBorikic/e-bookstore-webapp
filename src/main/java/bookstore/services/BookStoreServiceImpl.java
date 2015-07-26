@@ -25,10 +25,15 @@ public class BookStoreServiceImpl implements BookStoreService {
 	Logger logger = LoggerFactory.getLogger(BookStoreServiceImpl.class);
 
 	protected AutorDao autorDao;
+
 	protected IzdavacDao izdavacDao;
+
 	protected KnjigaDao knjigaDao;
+
 	protected ArtikalDao artikalDao;
+
 	protected NarudzbenicaDao narudzbenicaDao;
+
 	protected KorisnikDao korisnikDao;
 
 	// TO DO da se dodaju sve metode
@@ -81,18 +86,21 @@ public class BookStoreServiceImpl implements BookStoreService {
 	}
 
 	@Override
+	@Transactional
 	public Narudzbenica vratiNarudzbenicu(Long nar_id) {
 		// TODO Auto-generated method stub
 		return narudzbenicaDao.vratiNarudzbenicu(nar_id);
 	}
 
 	@Override
+	@Transactional
 	public List<Knjiga> vratiSveKnjige() {
 		// TODO Auto-generated method stub
 		return knjigaDao.vratiSveKnjige();
 	}
 
 	@Override
+	@Transactional
 	public Knjiga vratiKnjigu(Long isbn) {
 		// TODO Auto-generated method stub
 		return knjigaDao.vratiKnigu(isbn);

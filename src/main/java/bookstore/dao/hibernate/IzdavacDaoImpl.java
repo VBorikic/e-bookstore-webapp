@@ -12,11 +12,12 @@ import bookstore.model.Izdavac;
 public class IzdavacDaoImpl implements IzdavacDao {
 
 	Logger logger = LoggerFactory.getLogger(IzdavacDaoImpl.class);
+
 	protected SessionFactory sessionFactory;
 
 	@Override
 	public List<Izdavac> vratiSveIzdavace() {
-		return (List<Izdavac>) sessionFactory.getCurrentSession().createQuery("from izdavac").list();
+		return (List<Izdavac>) sessionFactory.getCurrentSession().createQuery("from Izdavac").list();
 	}
 
 	// setter and getter

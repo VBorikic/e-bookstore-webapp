@@ -16,10 +16,13 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "autor")
 public class Autor implements Serializable {
 	private static final long serialVersionUID = 1L;
+
 	@Id
 	@Column(name = "autor_id")
 	@GeneratedValue
@@ -36,6 +39,7 @@ public class Autor implements Serializable {
 	private Date datumRodjenja;
 
 	@OneToMany(mappedBy = "autor", fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+	@JsonBackReference
 	private List<Knjiga> listaKnjiga = new ArrayList<>();
 
 	public Autor() {

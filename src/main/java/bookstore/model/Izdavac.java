@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "izdavac")
 public class Izdavac implements Serializable {
@@ -27,6 +29,7 @@ public class Izdavac implements Serializable {
 	private String naziv;
 
 	@OneToMany(mappedBy = "izdavac", fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+	@JsonBackReference
 	private List<Knjiga> listaKnjiga = new ArrayList<>();
 
 	public Izdavac() {

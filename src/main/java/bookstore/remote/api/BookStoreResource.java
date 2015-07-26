@@ -21,9 +21,10 @@ import bookstore.model.Narudzbenica;
 import bookstore.services.BookStoreService;
 
 @RestController
-@RequestMapping(value = "/bookStoreService")
+@RequestMapping(value = "/blog")
 public class BookStoreResource {
 	Logger logger = LoggerFactory.getLogger(BookStoreResource.class);
+
 	protected BookStoreService bookStoreService;
 
 	// BookStore API

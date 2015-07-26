@@ -13,8 +13,11 @@ import bookstore.model.Knjiga;
 
 public class KnjigaDaoImpl implements KnjigaDao {
 	Logger logger = LoggerFactory.getLogger(KnjigaDaoImpl.class);
+
 	protected SessionFactory sessionFactory;
+
 	protected AutorDao autorDao;
+
 	protected IzdavacDao izdavacDao;
 
 	@Override
@@ -24,7 +27,7 @@ public class KnjigaDaoImpl implements KnjigaDao {
 
 	@Override
 	public List<Knjiga> vratiSveKnjige() {
-		return (List<Knjiga>) sessionFactory.getCurrentSession().createQuery("from knjiga").list();
+		return (List<Knjiga>) sessionFactory.getCurrentSession().createQuery("from Knjiga").list();
 	}
 
 	@Override

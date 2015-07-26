@@ -30,16 +30,13 @@
 		</property>
 		<property name="annotatedClasses">
 			<list>
-			<!--  
-				<value>bookstore.model.Blog</value>
-				<value>bookstore.model.Comment</value>
-				-->
+				<!-- <value>bookstore.model.Blog</value> <value>bookstore.model.Comment</value> -->
 				<value>bookstore.model.Autor</value>
 				<value>bookstore.model.Knjiga</value>
 				<value>bookstore.model.Izdavac</value>
 				<value>bookstore.model.Artikal</value>
-                <value>bookstore.model.Narudzbenica</value>
-                <value>bookstore.model.Korisnik</value>
+				<value>bookstore.model.Narudzbenica</value>
+				<value>bookstore.model.Korisnik</value>
 			</list>
 		</property>
 	</bean>
@@ -52,31 +49,31 @@
 	<!-- Transactions will be defined declaratively via annotations -->
 	<tx:annotation-driven transaction-manager="transactionManager" />
 
-    <!-- DAO services -->
-   
-   <bean id="autorDao" class="bookstore.dao.hibernate.AutorDaoImpl">
-        <property name="sessionFactory" ref="sessionFactory" />
-    </bean>
-    <bean id="izdavacDao" class="bookstore.dao.hibernate.IzdavacDaoImpl">
-        <property name="sessionFactory" ref="sessionFactory" />
-    </bean>
-     <bean id="knjigaDao" class="bookstore.dao.hibernate.KnjigaDaoImpl">
-        <property name="sessionFactory" ref="sessionFactory" />
-          <property name="autorDao" ref="autorDao" />
-            <property name="izdavacDao" ref="izdavacDao" />
-            
-    </bean>
-    <bean id="korisnikDao" class="bookstore.dao.hibernate.KorisnikDaoImpl">
-        <property name="sessionFactory" ref="sessionFactory" />
-    </bean>
-    <bean id="narudzbenicaDao" class="bookstore.dao.hibernate.NarudzbenicaDaoImpl">
-        <property name="sessionFactory" ref="sessionFactory" />
-        <property name="korisnikDao" ref="korisnikDao" />
-    </bean>
-    <bean id="artikalDao" class="bookstore.dao.hibernate.ArtikalDaoImpl">
-        <property name="sessionFactory" ref="sessionFactory" />
-         <property name="narudzbenicaDao" ref="narudzbenicaDao" />
-          <property name="knjigaDao" ref="knjigaDao" />
-    </bean>
+	<!-- DAO services -->
+
+	<bean id="autorDao" class="bookstore.dao.hibernate.AutorDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="izdavacDao" class="bookstore.dao.hibernate.IzdavacDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="knjigaDao" class="bookstore.dao.hibernate.KnjigaDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="autorDao" ref="autorDao" />
+		<property name="izdavacDao" ref="izdavacDao" />
+
+	</bean>
+	<bean id="korisnikDao" class="bookstore.dao.hibernate.KorisnikDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="narudzbenicaDao" class="bookstore.dao.hibernate.NarudzbenicaDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="korisnikDao" ref="korisnikDao" />
+	</bean>
+	<bean id="artikalDao" class="bookstore.dao.hibernate.ArtikalDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="narudzbenicaDao" ref="narudzbenicaDao" />
+		<property name="knjigaDao" ref="knjigaDao" />
+	</bean>
 
 </beans>

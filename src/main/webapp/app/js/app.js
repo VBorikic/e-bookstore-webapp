@@ -1,18 +1,23 @@
-angular.module('blogApp', ['blogApp.services', 'blogApp.controllers', 'ngRoute', 'ngResource'])
+angular.module('blogApp', ['services', 'controllers', 'ngRoute', 'ngResource'])
 	.config(
 		['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 			
-			$routeProvider.when('/blog/create', {
-				templateUrl: 'app/partials/blog-create.html',
-				controller: 'blogController'
+//			$routeProvider
+//				.when('/blog/create', {
+//				templateUrl: 'app/partials/blog-create.html',
+//				controller: 'knjigaController'
+//			})
+			$routeProvider.when('/knjige', {
+				templateUrl: 'app/partials/knjige.html',
+				controller: 'knjigaController'
 			});
-			
+					
 			$routeProvider.otherwise({
-				templateUrl: 'app/partials/blogs.html',
-				controller: 'blogController'
+				templateUrl: 'app/partials/knjige.html',
+				controller: 'knjigaController'
 			});
 			
-			$locationProvider.hashPrefix('!');
+//			$locationProvider.hashPrefix('!');
 		}]
-		
+		 
 	);

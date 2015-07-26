@@ -35,6 +35,11 @@ dependencies {
     compile "joda-time:joda-time:$jodaTimeVersion"
     compile "com.fasterxml.jackson.core:jackson-core:$jacksonVersion"
     
+    //dodatne jackson biblioteke
+    compile "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
+    compile "com.fasterxml.jackson.core:jackson-annotations:$jacksonVersion"
+    
+    
     // PostgreSQL, H2 databases
     compile "org.postgresql:postgresql:$postgresqlDatabaseVersion"
     testCompile "com.h2database:h2:$h2DatabaseVersion"

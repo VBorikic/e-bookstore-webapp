@@ -12,12 +12,13 @@ import bookstore.model.Autor;
 public class AutorDaoImpl implements AutorDao {
 
 	Logger logger = LoggerFactory.getLogger(AutorDaoImpl.class);
+
 	protected SessionFactory sessionFactory;
 
 	@Override
 	public List<Autor> vratiSveAutore() {
 
-		return (List<Autor>) sessionFactory.getCurrentSession().createQuery("from autor").list();
+		return (List<Autor>) sessionFactory.getCurrentSession().createQuery("from Autor").list();
 	}
 
 	public SessionFactory getSessionFactory() {

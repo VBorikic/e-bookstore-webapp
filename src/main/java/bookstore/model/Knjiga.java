@@ -2,7 +2,6 @@ package bookstore.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -15,14 +14,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "knjiga")
 public class Knjiga implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+
 	@Id
 	@Column
 	@GeneratedValue
@@ -37,9 +37,8 @@ public class Knjiga implements Serializable {
 	@Column(length = 2000)
 	private String opis;
 
-	@Temporal(TemporalType.DATE)
 	@Column(name = "godina_izdanja")
-	private Date godinaIzdanja;
+	private int godinaIzdanja;
 
 	@Column(name = "broj_knjiga")
 	private int brojKnjiga;
@@ -49,10 +48,12 @@ public class Knjiga implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name = "autor_id")
+	@JsonManagedReference
 	private Autor autor;
 
 	@ManyToOne
 	@JoinColumn(name = "izdavac_id")
+	@JsonManagedReference
 	private Izdavac izdavac;
 
 	@OneToMany(mappedBy = "knjiga", fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
@@ -87,11 +88,11 @@ public class Knjiga implements Serializable {
 		this.zanr = zanr;
 	}
 
-	public Date getGodinaIzdanja() {
+	public int getGodinaIzdanja() {
 		return godinaIzdanja;
 	}
 
-	public void setGodinaIzdanja(Date godinaIzdanja) {
+	public void setGodinaIzdanja(int godinaIzdanja) {
 		this.godinaIzdanja = godinaIzdanja;
 	}
 
