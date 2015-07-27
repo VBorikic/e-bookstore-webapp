@@ -12,7 +12,7 @@ angular.module('blogApp', ['services', 'controllers', 'ngRoute', 'ngResource'])
 				templateUrl: 'app/partials/knjige.html',
 				controller: 'knjigaController'
 			})
-			.when('/knjige/*', { //ovo vrv zeza
+			.when('/knjige/:knjigaId/view', { //ovo vrv zeza
 				templateUrl: 'app/partials/knjigadetalji.html',
 				controller: 'knjigaController'
 			})		

@@ -27,6 +27,7 @@ public interface BookStoreService {
 	// uradjeno u res
 	public Knjiga vratiKnjigu(Long isbn);
 
+	public void obrisiKnjigu(Long isbn);
 	// za srtikal mora slozen kljuc
 
 	public Artikal vratiArtikal(ArtikalPK artikal_id);

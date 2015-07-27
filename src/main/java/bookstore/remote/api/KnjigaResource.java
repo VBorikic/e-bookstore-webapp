@@ -33,10 +33,19 @@ public class KnjigaResource {
 		return bookstoreService.vratiKnjigu(knjigaID);
 	}
 
+	@RequestMapping(value = "/{knjigaId}", method = RequestMethod.PUT)
+	public @ResponseBody Knjiga updateBlog(@PathVariable("knjigaId") Long knjigaID) {
+		return bookstoreService.vratiKnjigu(knjigaID);
+	}
+
+	@RequestMapping(value = "/{knjigaId}", method = RequestMethod.DELETE)
+	public @ResponseBody void deleteBlog(@PathVariable("knjigaId") Long knjigaID) {
+		bookstoreService.obrisiKnjigu(knjigaID);
+	}
+
 	@RequestMapping(method = RequestMethod.POST)
 	public @ResponseBody Knjiga createKnjiga(@RequestBody Knjiga knjiga) {
 		// blog.setCreated(new Date());
-
 		return bookstoreService.unesiNovuKnjigu(knjiga);
 	}
 

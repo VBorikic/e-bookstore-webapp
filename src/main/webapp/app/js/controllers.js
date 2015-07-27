@@ -24,9 +24,9 @@ var controllers = angular.module('controllers', []);
 controllers.controller('knjigaController', function($scope, $location,
 		knjigaService) {
 	$scope.knjige = knjigaService.query();
-//	$scope.knjiga = 1;
-	$scope.knjigadetalji = new knjigaService();
-
+	
+	$scope.knjiga = new knjigaService();
+	$scope.knjiga = new knjigaService();
 	// debug
 	console.log($scope.knjigadetalji);
 });

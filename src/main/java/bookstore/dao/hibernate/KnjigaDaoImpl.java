@@ -36,6 +36,12 @@ public class KnjigaDaoImpl implements KnjigaDao {
 		return (Knjiga) sessionFactory.getCurrentSession().get(Knjiga.class, isbn);
 	}
 
+	@Override
+	public void obrisiKnjigu(Long isbn) {
+		sessionFactory.getCurrentSession().delete(vratiKnigu(isbn));
+
+	}
+
 	// setters and getters
 	public SessionFactory getSessionFactory() {
 		return sessionFactory;

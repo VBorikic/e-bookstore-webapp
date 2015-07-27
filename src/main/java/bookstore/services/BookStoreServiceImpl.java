@@ -60,6 +60,13 @@ public class BookStoreServiceImpl implements BookStoreService {
 
 	@Override
 	@Transactional
+	public void obrisiKnjigu(Long isbn) {
+		knjigaDao.obrisiKnjigu(isbn);
+
+	}
+
+	@Override
+	@Transactional
 	public Artikal ubaciArtikal(Artikal a) {
 		ArtikalPK artikalID = artikalDao.ubaciArtikal(a);
 		return artikalDao.vratiArtikal(artikalID);

@@ -11,4 +11,6 @@ public interface KnjigaDao {
 	public List<Knjiga> vratiSveKnjige();
 
 	public Knjiga vratiKnigu(Long isbn);
+
+	public void obrisiKnjigu(Long isbn);
 }
