@@ -73,6 +73,7 @@ public class BookStoreServiceImpl implements BookStoreService {
 	}
 
 	@Override
+	@Transactional
 	public Artikal vratiArtikal(ArtikalPK a_id) {
 		// TODO Auto-generated method stub
 		return artikalDao.vratiArtikal(a_id);
