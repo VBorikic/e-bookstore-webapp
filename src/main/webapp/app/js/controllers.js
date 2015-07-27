@@ -1,32 +1,21 @@
 var controllers = angular.module('controllers', []);
 
-// controllers.controller('blogController', function($scope, $location,
-// blogService) {
-// $scope.blogEntries = blogService.query();
-//
-// $scope.deleteBlogEntry = function(blogEntry) {
-// blogEntry.$remove({
-// blogId : blogEntry.id
-// }, function() {
-// $scope.blogEntries = blogService.query();
-// });
-// };
-//
-// $scope.blogEntry = new blogService();
-//
-// $scope.saveBlog = function() {
-// $scope.blogEntry.$save(function() {
-// $location.path('/');
-// });
-// };
-// });
 
 controllers.controller('knjigaController', function($scope, $location,
 		knjigaService) {
 	$scope.knjige = knjigaService.query();
 	
-	$scope.knjiga = new knjigaService();
-	$scope.knjiga = new knjigaService();
+	console.log('knjige ');
+	console.log($scope.knjige);
+
+});
+controllers.controller('knjigaDetaljiController', function($scope, $location, $routeParams,
+		knjigaService) {
+	$scope.isbn = $routeParams.isbn;
+	console.log('trazim knjigu');
+	$scope.knjiga = knjigaService.get({isbn:$scope.isbn}, function (){
+		console.log('vracena knjiga');
+	});
 	// debug
-	console.log($scope.knjigadetalji);
+//	console.log($scope.knjiga);
 });
