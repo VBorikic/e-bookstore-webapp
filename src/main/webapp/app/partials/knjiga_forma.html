@@ -1,0 +1,49 @@
+<div class="form-group">
+  <label for="title" class="col-sm-2 control-label">Naziv knjige:</label>
+  <div class="col-sm-10">
+    <input type="text" ng-model="knjiga.naziv" class="form-control" id="title" placeholder="Naziv knjige"/>
+  </div>
+</div>
+<div class="form-group">
+  <label for="year" class="col-sm-2 control-label">Opis</label>
+  <div class="col-sm-10">
+    <input type="text" ng-model="knjiga.opis" class="form-control" id="year" placeholder="Kratak opis knjige"/>
+  </div>
+</div>
+<div class="form-group">
+  <label for="year" class="col-sm-2 control-label">Autor</label>
+  <div class="col-sm-10">
+   <select>
+  <option value="volvo">ovde autori</option>
+  </select>
+  </div>
+</div>
+<div class="form-group">
+  <label for="director" class="col-sm-2 control-label">Zanr</label>
+  <div class="col-sm-10">
+    <input type="text" ng-model="knjiga.zanr" class="form-control" id="director" placeholder="zanr knjige"/>
+  </div>
+</div>
+<div class="form-group">
+  <label for="plot" class="col-sm-2 control-label">Godina izdanja</label>
+  <div class="col-sm-10">
+    <input type="number" ng-model="knjiga.godinaIzdanja" class="form-control" id="plot" placeholder="Godina izdanja"/>
+  </div>
+</div>
+<div class="form-group">
+  <label for="plot" class="col-sm-2 control-label">Komada u prodaji</label>
+  <div class="col-sm-10">
+    <input type="number" ng-model="knjiga.brojKnjiga" class="form-control" id="plot" placeholder="Komada u prodaji"/>
+  </div>
+</div>
+<div class="form-group">
+  <label for="plot" class="col-sm-2 control-label">Cena</label>
+  <div class="col-sm-10">
+    <input type="text" ng-model="knjiga.cena" class="form-control" id="plot" placeholder="Cena knjige"/>
+  </div>
+</div>
+<div class="form-group">
+  <div class="col-sm-offset-2 col-sm-10">
+    <input type="submit" class="btn btn-primary" value="Save"/>
+  </div>
+</div>

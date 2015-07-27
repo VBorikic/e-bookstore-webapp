@@ -15,6 +15,10 @@ angular.module('blogApp', ['services', 'controllers', 'ngRoute', 'ngResource'])
 				templateUrl: 'app/partials/knjigadetalji.html',
 				controller: 'knjigaDetaljiController'
 			})
+			.when('/knjige/nova', { 
+				templateUrl: 'app/partials/knjigaunos.html',
+				controller: 'knjigaNovaController'
+			})
 			.otherwise({redirectTo:'/'});
 			
 //			$locationProvider.hashPrefix('!');
