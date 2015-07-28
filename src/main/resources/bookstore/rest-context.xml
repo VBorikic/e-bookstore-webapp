@@ -6,9 +6,9 @@
   
 	<mvc:annotation-driven />
 
-<!-- 	<bean id="bookStoreResource" class="bookstore.remote.api.BookStoreResource"> -->
-<!--         <property name="bookStoreService" ref="bookStoreService" /> -->
-<!--     </bean> -->
+	<bean id="bookStoreResource" class="bookstore.remote.api.BookStoreResource">
+        <property name="bookStoreService" ref="bookStoreService" />
+    </bean>
     <bean id="knjigaResource" class="bookstore.remote.api.KnjigaResource">
         <property name="bookStoreService" ref="bookStoreService" />
     </bean>
