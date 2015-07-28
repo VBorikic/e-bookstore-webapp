@@ -7,7 +7,13 @@ controllers.controller('knjigaController', function($scope, $location,
 	
 	console.log('knjige ');
 	console.log($scope.knjige);
-
+//	
+//	 $scope.obrisiKnjigu = function(knjiga) { // Delete a movie. Issues a DELETE to /api/movies/:id
+//		    
+//		      knjiga.$delete(function() {
+//		        console.log('Knjiga je obrisana!');
+//		    }
+//		  };
 });
 
 controllers.controller('knjigaDetaljiController', function($scope, $location, $routeParams,

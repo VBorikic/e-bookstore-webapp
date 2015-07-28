@@ -1,0 +1,35 @@
+<div ng-controller="knjigaController">
+
+	<div class="page-header">
+		<h3>Knjige</h3>
+	</div>
+
+	<div ng-show="knjige.length > 0">
+	
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>Naziv knjige</th>
+					<th>Autor</th>
+					<th>Izdavac</th>
+					<th>Na stanju</th>
+					<th>Cena</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="knjiga in knjige">
+					<td>{{knjiga.naziv}}</td>
+					<td>{{knjiga.autor.ime}} {{knjiga.autor.prezime}}</td>
+					<td>{{knjiga.izdavac.naziv}}</td>
+					<td>{{knjiga.brojKnjiga}}</td>
+					<td>{{knjiga.cena}}</td>
+					<td>
+<!--       <a class="btn btn-primary" ui-sref="viewMovie({id:movie._id})">View</a> -->
+      <a class="btn btn-danger"  ng-click="obrisiKnjigu(knjiga)">Obrisi</a>
+                    </td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div ng-hide="knjige.length > 0">Nema knjiga.</div>
+</div>

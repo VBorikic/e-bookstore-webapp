@@ -11,6 +11,10 @@ angular.module('blogApp', ['services', 'controllers', 'ngRoute', 'ngResource'])
 				templateUrl: 'app/partials/knjige.html',
 				controller: 'knjigaController'
 			})
+			.when('/admin/knjige', {
+				templateUrl: 'app/partials/knjige_admin.html',
+				controller: 'knjigaController'
+			})
 			.when('/knjige/:isbn/view', { 
 				templateUrl: 'app/partials/knjigadetalji.html',
 				controller: 'knjigaDetaljiController'
