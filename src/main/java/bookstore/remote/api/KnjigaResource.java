@@ -46,6 +46,7 @@ public class KnjigaResource {
 	@RequestMapping(method = RequestMethod.POST)
 	public @ResponseBody Knjiga createKnjiga(@RequestBody Knjiga knjiga) {
 		// blog.setCreated(new Date());
+		logger.debug("cuvanje knjige");
 		return bookstoreService.unesiNovuKnjigu(knjiga);
 	}
 

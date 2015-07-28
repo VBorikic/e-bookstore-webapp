@@ -13,10 +13,12 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name = "izdavac")
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "izdavacId")
 public class Izdavac implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -29,7 +31,7 @@ public class Izdavac implements Serializable {
 	private String naziv;
 
 	@OneToMany(mappedBy = "izdavac", fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-	@JsonBackReference
+	// @JsonBackReference
 	private List<Knjiga> listaKnjiga = new ArrayList<>();
 
 	public Izdavac() {

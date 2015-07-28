@@ -15,10 +15,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name = "knjiga")
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "ISBN")
 public class Knjiga implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -48,12 +50,12 @@ public class Knjiga implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name = "autor_id")
-	@JsonManagedReference
+	// @JsonManagedReference
 	private Autor autor;
 
 	@ManyToOne
 	@JoinColumn(name = "izdavac_id")
-	@JsonManagedReference
+	// @JsonManagedReference
 	private Izdavac izdavac;
 
 	@OneToMany(mappedBy = "knjiga", fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
