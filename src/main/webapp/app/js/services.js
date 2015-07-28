@@ -1,5 +1,6 @@
-var servisi = 
-	angular.module('services', []).factory('knjigaService',
+var services = angular.module('services', []);
+
+services.factory('knjigaService',
 		function($resource) {
 			return $resource('service/knjige/:isbn', {
 				isbn : '@isbn'
@@ -10,7 +11,12 @@ var servisi =
 			});
 		});
 
-
+services.factory('izdavaciService', function($resource){
+	return $resource('service/izdavaci'	);
+});
+services.factory('autoriService', function($resource){
+	return $resource('service/autori'	);
+});
 // servisi.factory('knjigaService', function($resource) {
 // return $resource('service/knjige/:knjigaId', { knjigaId: 'isbn' }, {
 // update: {

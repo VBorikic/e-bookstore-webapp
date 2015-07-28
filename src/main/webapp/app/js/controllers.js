@@ -22,9 +22,15 @@ controllers.controller('knjigaDetaljiController', function($scope, $location, $r
 });
 
 controllers.controller('knjigaNovaController', function($scope, $location,
-		knjigaService) {
+		knjigaService, izdavaciService, autoriService) {
 	  $scope.knjiga = new knjigaService();  //create new movie instance. Properties will be set via ng-model on UI
 	  //posalji zahtev za liste autora i izdavaca
+	  $scope.autori = autoriService.query();
+	  $scope.izdavaci = izdavaciService.query();
+	  
+//	  $scope.odabraniAutor;
+//	  $scope.odabraniIzdavac;
+	  
 	  $scope.dodajKnjigu = function() { //create a new movie. Issues a POST to /api/movies
 	    $scope.knjiga.$save(function() {
 	      // on success
