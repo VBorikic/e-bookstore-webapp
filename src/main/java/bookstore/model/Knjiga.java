@@ -15,12 +15,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-
 @Entity
 @Table(name = "knjiga")
-@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "ISBN")
+// @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "id")
 public class Knjiga implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -28,7 +25,7 @@ public class Knjiga implements Serializable {
 	@Id
 	@Column
 	@GeneratedValue
-	private Long ISBN;
+	private Long isbn;
 
 	@Column
 	private String naziv;
@@ -67,11 +64,11 @@ public class Knjiga implements Serializable {
 	}
 
 	public Long getISBN() {
-		return ISBN;
+		return isbn;
 	}
 
 	public void setISBN(Long iSBN) {
-		ISBN = iSBN;
+		isbn = iSBN;
 	}
 
 	public String getNaziv() {
@@ -148,7 +145,7 @@ public class Knjiga implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Knjiga [ISBN=" + ISBN + ", naziv=" + naziv + ", zanr=" + zanr + ", godinaIzdanja=" + godinaIzdanja
+		return "Knjiga [ISBN=" + isbn + ", naziv=" + naziv + ", zanr=" + zanr + ", godinaIzdanja=" + godinaIzdanja
 				+ ", brojKnjiga=" + brojKnjiga + ", cena=" + cena + ", autor=" + autor + "]";
 	}
 

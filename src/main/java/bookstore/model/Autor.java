@@ -16,12 +16,11 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "autor")
-@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "autorId")
+// @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "id", scope = Autor.class)
 public class Autor implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -42,11 +41,11 @@ public class Autor implements Serializable {
 
 	@OneToMany(mappedBy = "autor", fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	// @JsonBackReference
+	@JsonIgnore
 	private List<Knjiga> listaKnjiga = new ArrayList<>();
 
 	public Autor() {
 		super();
-
 	}
 
 	public int getAutorId() {
