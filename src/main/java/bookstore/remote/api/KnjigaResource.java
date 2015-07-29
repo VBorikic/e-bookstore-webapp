@@ -39,7 +39,7 @@ public class KnjigaResource {
 	}
 
 	@RequestMapping(value = "/{knjigaId}", method = RequestMethod.DELETE)
-	public @ResponseBody void deleteBlog(@PathVariable("knjigaId") Long knjigaID) {
+	public @ResponseBody void obrisiKnjigu(@PathVariable("knjigaId") Long knjigaID) {
 		bookstoreService.obrisiKnjigu(knjigaID);
 	}
 
