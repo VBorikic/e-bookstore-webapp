@@ -1,3 +1,4 @@
+
 angular.module('blogApp', ['services', 'controllers', 'ngRoute', 'ngResource','ui.bootstrap'])
 	.config(
 		['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
@@ -33,3 +34,4 @@ angular.module('blogApp', ['services', 'controllers', 'ngRoute', 'ngResource','u
 		}]
 		 
 	);
+
