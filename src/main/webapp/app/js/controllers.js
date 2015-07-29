@@ -10,6 +10,8 @@ controllers.controller('knjigaController', function($scope, $location, $http,
 	$scope.knjige = knjigaService.query();	
 	console.log('knjige');
 	console.log($scope.knjige);
+	
+	
 	$scope.obrisiKnjigu = function(knjiga){
 		$http.delete('service/knjige/'+knjiga.isbn).
 		 success(function() {

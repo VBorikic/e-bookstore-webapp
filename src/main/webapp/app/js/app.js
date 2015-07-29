@@ -1,5 +1,5 @@
 
-angular.module('blogApp', ['services', 'controllers', 'ngRoute', 'ngResource','ui.bootstrap'])
+angular.module('blogApp', ['services', 'controllers', 'ngRoute', 'ngResource','ui.bootstrap','angularUtils.directives.dirPagination'])
 	.config(
 		['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 

@@ -7,9 +7,19 @@
 
 <div ng-show="knjige.length > 0">
  <div class="container" >
-    <div class="row row-centered">
+ 
+ 
+  <form class="form-inline">
+        <div class="form-group">
+            <label >Pretraga</label>
+            <input type="text" ng-model="search" class="form-control" placeholder="Search">
+        </div>
+    </form>
     
-    <div ng-repeat="knjiga in knjige" class="col-xs-4 col-centered col-min"  >
+    
+    <div class="row row-centered">
+    <br>
+    <div dir-paginate="knjiga in knjige|filter:search|itemsPerPage:3" class="col-xs-4 col-centered col-min"  >
     
    
         <a href="#knjige/{{knjiga.isbn}}/view" style="text-decoration:none; text-align: center;" class="thumbnail plain" style="text-align: center;">
@@ -41,6 +51,12 @@
         </div>
         </div>
     </div>
+    <br>
+    <dir-pagination-controls
+        max-size="5"
+        direction-links="true"
+        boundary-links="true" >
+    </dir-pagination-controls>
 
   
     
