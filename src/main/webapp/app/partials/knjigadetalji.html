@@ -14,11 +14,13 @@
 	<h3>Cena : {{knjiga.cena}}</h3>
 	<h3>Zanr:{{knjiga.zanr}}</h3>
 	 <br/>
-     <div>Opis:{{knjiga.opis}}</div>
+	
 	<br/>
 	 
 	 </div>
 	 <div class="col-xs-4 col-centered">
+	  Opis:
+     <textarea class="form-control" rows="3" style="height:200px;">{{knjiga.opis}}</textarea><br>
 	  <button class='btn btn-default' ng-click="">Dodaj u korpu
 	  <span class="glyphicon glyphicon-circle-arrow-down" aria-hidden="true"></span></button>
 	  </div>
