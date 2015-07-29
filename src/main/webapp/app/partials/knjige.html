@@ -6,10 +6,22 @@
 </div>
 
 <div ng-show="knjige.length > 0">
-ima knjiga
-    <div ng-repeat="knjiga in knjige">
-
-        <div class="container">
+ <div class="container" >
+    <div class="row row-centered">
+    
+    <div ng-repeat="knjiga in knjige" class="col-xs-4 col-centered col-min"  >
+    
+   
+        <a href="#knjige/{{knjiga.isbn}}/view" style="text-decoration:none; text-align: center;" class="thumbnail plain" style="text-align: center;">
+        
+    <img ng-src="{{knjiga.slika}}" height="150" width="100" alt="">
+    <h3>{{knjiga.naziv}}</h3>
+    Godina izdanja :{{knjiga.godinaIzdanja}}<br/>
+    Autor :{{knjiga.autor.ime}}{{knjiga.autor.prezime}}<br/>
+    <i class="icon-globe"></i> Cena :{{knjiga.cena}}
+</a>
+        <!-- 
+       
             <div class="row">
                 <div class="col-md-6"><h3><a href="#knjige/{{knjiga.isbn}}/view">{{knjiga.naziv}}</a></h3></div>
                 <div class="col-md-6"><span class="pull-right"><a href="" ng-click="deleteBlogEntry(blogEntry)"><img src="app/img/actions/delete-16.png" /></a></span></div>
@@ -20,9 +32,19 @@ ima knjiga
             <div class="row">
                 <div class="col-md-12"><span class="pull-right"><small>{{knjiga.naziv}}, cena: {{knjiga.cena}}</small></span></div>
             </div>
-        </div>
+       
+         -->
+         
         <hr />
+       
+       
+        </div>
+        </div>
     </div>
+
+  
+    
+    
 </div>
 
 <div ng-hide="knjige.length > 0">Nema knjiga.</div>

@@ -17,7 +17,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "knjiga")
-// @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "id")
+// @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class,
+// property = "id")
 public class Knjiga implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -144,6 +145,14 @@ public class Knjiga implements Serializable {
 
 	public void setListaArtikala(List<Artikal> listaArtikala) {
 		this.listaArtikala = listaArtikala;
+	}
+
+	public String getSlika() {
+		return slika;
+	}
+
+	public void setSlika(String slika) {
+		this.slika = slika;
 	}
 
 	@Override

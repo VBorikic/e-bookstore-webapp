@@ -1,24 +1,19 @@
 var controllers = angular.module('controllers', []);
 
+controllers.controller('prijavljivanjeController', function($scope, $location, $http,
+		knjigaService) {
+	
+});
 
 controllers.controller('knjigaController', function($scope, $location, $http,
 		knjigaService) {
-	$scope.knjige = knjigaService.query();
-	
+	$scope.knjige = knjigaService.query();	
 	console.log('knjige');
 	console.log($scope.knjige);
-	
-// $scope.obrisiKnjigu = function(knjiga) { // Delete a movie. Issues a DELETE
-// to /api/movies/:id
-// knjiga.$delete(function() {
-// // on success
-// alert('Knjiga je obrisana!');
-// }
-// };
 	$scope.obrisiKnjigu = function(knjiga){
 		$http.delete('service/knjige/'+knjiga.isbn).
 		 success(function() {
-			    console.log('Knjiga je obrisana');
+			 console.log('Knjiga je obrisana');
 			    $scope.knjige = knjigaService.query(); 
 			  }).
 			  error(function() {
@@ -38,16 +33,12 @@ controllers.controller('knjigaDetaljiController', function($scope, $location, $r
 
 controllers.controller('knjigaNovaController', function($scope, $location,
 		knjigaService, izdavaciService, autoriService) {
-	  $scope.knjiga = new knjigaService();  // create new movie instance.
-											// Properties will be set via
-											// ng-model on UI
+	  $scope.knjiga = new knjigaService(); 
 	  // posalji zahtev za liste autora i izdavaca
 	  $scope.autori = autoriService.query();
 	  $scope.izdavaci = izdavaciService.query();
 	  
-  
-	  $scope.dodajKnjigu = function() { // create a new movie. Issues a POST to
-										// /api/movies
+	  $scope.dodajKnjigu = function() { 
 	    $scope.knjiga.$save(function() {
 	      // on success
 	    	alert('Knjiga je sacuvana!');

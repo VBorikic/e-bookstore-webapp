@@ -1,4 +1,4 @@
-angular.module('blogApp', ['services', 'controllers', 'ngRoute', 'ngResource'])
+angular.module('blogApp', ['services', 'controllers', 'ngRoute', 'ngResource','ui.bootstrap'])
 	.config(
 		['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
@@ -6,6 +6,10 @@ angular.module('blogApp', ['services', 'controllers', 'ngRoute', 'ngResource'])
 			.when('/', {
 				templateUrl: 'app/partials/pocetna.html',
 				controller: 'knjigaController'
+			})
+			.when('/prijava', {
+				templateUrl: 'app/partials/prijava.html',
+				controller: 'prijavljivanjeController'
 			})
 			.when('/knjige', {
 				templateUrl: 'app/partials/knjige.html',
