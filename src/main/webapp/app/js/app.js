@@ -1,4 +1,4 @@
-angular.module('blogApp', ['services', 'controllers', 'ngRoute', 'ngResource'])
+angular.module('blogApp', ['services', 'controllers', 'ngRoute', 'ngResource','ui.bootstrap'])
 	.config(
 		['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 

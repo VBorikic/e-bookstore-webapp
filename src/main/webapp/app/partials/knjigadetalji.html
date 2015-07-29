@@ -1,6 +1,28 @@
 <div>
+    Detalji o knjizi
+    <hr>
+    
+    <div class="container">
+    <div class="row row-centered">
+    <div class="col-xs-4 col-centered">
+     <img alt="" ng-src="{{knjiga.slika}}" height="300" width="200">
+    
+     </div>
+    <div class="col-xs-4 col-centered">
 	<h2>{{knjiga.naziv}}</h2>
-	<h3>{{knjiga.autor.ime}} {{knjiga.autor.prezime}}</h3>
-	<br>
-	<div>{{knjiga.opis}}</div>
+	<h3> Autor :{{knjiga.autor.ime}} {{knjiga.autor.prezime}}</h3>
+	<h3>Cena : {{knjiga.cena}}</h3>
+	<h3>Zanr:{{knjiga.zanr}}</h3>
+	 <br/>
+     <div>Opis:{{knjiga.opis}}</div>
+	<br/>
+	 
+	 </div>
+	 <div class="col-xs-4 col-centered">
+	  <button class='btn btn-default' ng-click="">Dodaj u korpu
+	  <span class="glyphicon glyphicon-circle-arrow-down" aria-hidden="true"></span></button>
+	  </div>
+	 </div>
+	
+	 </div>
 </div>
