@@ -5,7 +5,13 @@
 	</div>
 
 	<div ng-show="knjige.length > 0">
-	
+	<form class="form-inline">
+        <div class="form-group">
+            <label >Pretraga</label>
+            <input type="text" ng-model="search" class="form-control" placeholder="Search">
+        </div>
+    </form>
+    <br>
 		<table class="table table-bordered">
 			<thead>
 				<tr>
@@ -17,7 +23,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="knjiga in knjige">
+				<tr dir-paginate="knjiga in knjige|itemsPerPage:3|filter:search">
 					<td>{{knjiga.naziv}}</td>
 					<td>{{knjiga.autor.ime}} {{knjiga.autor.prezime}}</td>
 					<td>{{knjiga.izdavac.naziv}}</td>
@@ -30,6 +36,12 @@
 				</tr>
 			</tbody>
 		</table>
+		<br>
+		 <dir-pagination-controls
+        max-size="5"
+        direction-links="true"
+        boundary-links="true" >
+    </dir-pagination-controls>
 	</div>
 	<div ng-hide="knjige.length > 0">Nema knjiga.</div>
 </div>
