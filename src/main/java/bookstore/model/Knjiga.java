@@ -45,6 +45,9 @@ public class Knjiga implements Serializable {
 	@Column
 	private double cena;
 
+	@Column
+	private String slika;
+
 	@ManyToOne
 	@JoinColumn(name = "autor_id")
 	// @JsonManagedReference
