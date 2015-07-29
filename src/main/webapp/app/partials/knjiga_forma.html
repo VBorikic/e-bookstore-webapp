@@ -19,7 +19,7 @@
 <div class="form-group">
   <label for="year" class="col-sm-2 control-label">Autor</label>
   <div class="col-sm-10">
-   <select ng-model="knjiga.autor" ng-options="autor.ime + ' ' + autor.prezime for autor in autori" >
+   <select ng-model="knjiga.autor" class="form-control" ng-options="autor.ime + ' ' + autor.prezime for autor in autori" >
   </select>
   </div>
 </div>
@@ -32,7 +32,7 @@
 <div class="form-group">
   <label for="year" class="col-sm-2 control-label">Izdavac</label>
   <div class="col-sm-10">
-   <select ng-model="knjiga.izdavac" ng-options="izdavac.naziv for izdavac in izdavaci" >
+   <select ng-model="knjiga.izdavac" class="form-control" ng-options="izdavac.naziv for izdavac in izdavaci" >
   </select>
   </div>
 </div>
