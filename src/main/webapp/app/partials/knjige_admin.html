@@ -1,47 +1,19 @@
-<div ng-controller="knjigaController">
 
-	<div class="page-header">
-		<h3>Knjige</h3>
-	</div>
+<div class="container-fluid">
+      
+      <div class="row row-offcanvas row-offcanvas-left">
+        
+        <div ng-include="'app/partials/admin_panel.html'">  </div>
+        
+        <div class="col-sm-9 col-md-10 main">
+             <div ng-include="'app/partials/knjige_admin_forma.html'">  </div>
+        
+          
+      </div><!--/row-->
+    </div>
+</div><!--/.container-->
 
-	<div ng-show="knjige.length > 0">
-	<form class="form-inline">
-        <div class="form-group">
-            <label >Pretraga</label>
-            <input type="text" ng-model="search" class="form-control" placeholder="Search">
-        </div>
-    </form>
-    <br>
-		<table class="table table-bordered">
-			<thead>
-				<tr>
-					<th>Naziv knjige</th>
-					<th>Autor</th>
-					<th>Izdavac</th>
-					<th>Na stanju</th>
-					<th>Cena</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr dir-paginate="knjiga in knjige|itemsPerPage:3|filter:search">
-					<td>{{knjiga.naziv}}</td>
-					<td>{{knjiga.autor.ime}} {{knjiga.autor.prezime}}</td>
-					<td>{{knjiga.izdavac.naziv}}</td>
-					<td>{{knjiga.brojKnjiga}}</td>
-					<td>{{knjiga.cena}}</td>
-					<td>
-<!--       <a class="btn btn-primary" ui-sref="viewMovie({id:movie._id})">View</a> -->
-      <a class="btn btn-danger" href="" ng-click="obrisiKnjigu(knjiga)">Obrisi</a>
-                    </td>
-				</tr>
-			</tbody>
-		</table>
-		<br>
-		 <dir-pagination-controls
-        max-size="5"
-        direction-links="true"
-        boundary-links="true" >
-    </dir-pagination-controls>
-	</div>
-	<div ng-hide="knjige.length > 0">Nema knjiga.</div>
-</div>
+
+
+
+

@@ -1,3 +1,14 @@
-<form class="form-horizontal" role="form" ng-submit="dodajKnjigu()">
-  <div ng-include="'app/partials/knjiga_forma.html'"></div>
-</form>
+
+<div class="container-fluid">
+      
+      <div class="row row-offcanvas row-offcanvas-left">
+        
+        <div ng-include="'app/partials/admin_panel.html'">  </div>
+        
+        <div class="col-sm-9 col-md-10 main">
+             <div ng-include="'app/partials/knjiga_unos_forma.html'">  </div>
+        
+          
+      </div><!--/row-->
+    </div>
+</div><!--/.container-->
