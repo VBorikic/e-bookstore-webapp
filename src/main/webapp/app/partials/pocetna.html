@@ -29,7 +29,9 @@
         <img ng-src="{{knjiga.slika}}" height="300" width="200" style="margin:auto;">
         <div class="carousel-caption">
           <h4>Slide {{$index}}</h4>
+          <a href="#knjige/{{knjiga.isbn}}/view" style="text-decoration:none; text-align: center;" class="thumbnail plain" style="text-align: center;">
           <p>{{knjiga.naziv}}</p>
+          </a>
         </div>
       </slide>
     </carousel>
