@@ -60,6 +60,13 @@ public class BookStoreServiceImpl implements BookStoreService {
 
 	@Override
 	@Transactional
+	public void izmeniKnjigu(Knjiga knjiga) {
+		knjigaDao.izmeniKnjigu(knjiga);
+
+	}
+
+	@Override
+	@Transactional
 	public void obrisiKnjigu(Long isbn) {
 		knjigaDao.obrisiKnjigu(isbn);
 

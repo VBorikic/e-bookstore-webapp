@@ -8,6 +8,8 @@ public interface KnjigaDao {
 
 	public Long unesiNovuKnjigu(Knjiga knjiga);
 
+	public void izmeniKnjigu(Knjiga knjiga);
+
 	public List<Knjiga> vratiSveKnjige();
 
 	public Knjiga vratiKnigu(Long isbn);

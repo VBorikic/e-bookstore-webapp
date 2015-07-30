@@ -26,6 +26,11 @@ public class KnjigaDaoImpl implements KnjigaDao {
 	}
 
 	@Override
+	public void izmeniKnjigu(Knjiga knjiga) {
+		sessionFactory.getCurrentSession().update(knjiga);
+	}
+
+	@Override
 	public List<Knjiga> vratiSveKnjige() {
 		return (List<Knjiga>) sessionFactory.getCurrentSession().createQuery("from Knjiga").list();
 	}

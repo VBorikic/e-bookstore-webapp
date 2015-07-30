@@ -30,7 +30,7 @@ angular.module('blogApp', ['services', 'controllers', 'ngRoute', 'ngResource','u
 			})
 			.when('/admin/knjige/:isbn/izmena', { 
 				templateUrl: 'app/partials/knjiga_izmena.html',
-				controller: 'knjigaNovaController'
+				controller: 'knjigaIzmenaController'
 			})
 			.otherwise({redirectTo:'/'});
 			

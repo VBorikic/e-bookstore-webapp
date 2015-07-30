@@ -49,3 +49,26 @@ controllers.controller('knjigaNovaController', function($scope, $location,
 	  };
 
 });
+
+controllers.controller('knjigaIzmenaController', function($scope, $location, $routeParams,
+		knjigaService, izdavaciService, autoriService) {
+	$scope.isbn = $routeParams.isbn;
+	console.log('trazim knjigu');
+	$scope.knjiga = knjigaService.get({isbn:$scope.isbn}, function (){
+		console.log('vracena knjiga');
+		});
+	
+	  // posalji zahtev za liste autora i izdavaca
+	  $scope.autori = autoriService.query();
+	  $scope.izdavaci = izdavaciService.query();
+	  
+	  //cuvanje izmena
+	 $scope.izmeniKnjigu = function(){
+		 $scope.knjiga.$update(function() {
+		      //on success
+			 alert('Knjiga je izmenjena!');
+		    	$location.path('admin/knjige');
+		    }); 
+		 
+	 };
+});

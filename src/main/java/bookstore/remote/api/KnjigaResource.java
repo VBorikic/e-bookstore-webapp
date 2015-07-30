@@ -34,8 +34,8 @@ public class KnjigaResource {
 	}
 
 	@RequestMapping(value = "/{knjigaId}", method = RequestMethod.PUT)
-	public @ResponseBody Knjiga updateBlog(@PathVariable("knjigaId") Long knjigaID) {
-		return bookstoreService.vratiKnjigu(knjigaID);
+	public @ResponseBody void updateBlog(@RequestBody Knjiga knjiga) {
+		bookstoreService.izmeniKnjigu(knjiga);
 	}
 
 	@RequestMapping(value = "/{knjigaId}", method = RequestMethod.DELETE)
