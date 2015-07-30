@@ -1,4 +1,5 @@
 <div>
+<!--  
  <div class="row">
         <h2>Sajtovi za kupovinu knjiga</h2>
         <div class="col-md-4">
@@ -20,7 +21,20 @@
           <p><a class="btn btn-default" href="http://www.delfi.rs/" role="button">Sajt delfi knjiÅ¾are &raquo;</a></p>
         </div>
       </div>
-
+-->
+<div ng-controller="CarouselSlideController">
+  <div style="height: 305px ;height=:300 ;width=:200">
+    <carousel interval="myInterval" no-wrap="noWrapSlides">
+      <slide ng-repeat="knjiga in knjige" active="knjiga.active">
+        <img ng-src="{{knjiga.slika}}" height="300" width="200" style="margin:auto;">
+        <div class="carousel-caption">
+          <h4>Slide {{$index}}</h4>
+          <p>{{knjiga.naziv}}</p>
+        </div>
+      </slide>
+    </carousel>
+  </div>
+  </div>
       <hr>
       <h1>Zanimljivosti iz sveta knjiÅ¾evnosti</h1>
       

@@ -72,3 +72,11 @@ controllers.controller('knjigaIzmenaController', function($scope, $location, $ro
 		 
 	 };
 });
+
+controllers.controller('CarouselSlideController', function ($scope,knjigaService) {
+	  $scope.myInterval = 2000;
+	  $scope.noWrapSlides = false;
+	
+	  
+	  $scope.knjige = knjigaService.query();
+	});
