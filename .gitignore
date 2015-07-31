@@ -12,7 +12,7 @@ gradle-app.setting
 !gradle-wrapper.jar
 
 #ignore specific properties file
-/e-bookstore-webapp/src/main/resources/bookstore/application.properties
+application.properties
 
 
 *.class
