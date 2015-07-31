@@ -25,6 +25,14 @@ dependencies {
     compile "org.springframework:spring-webmvc:$springVersion"
     testCompile "org.springframework:spring-test:$springVersion"
 
+    //Security
+    compile 'org.springframework.security:spring-security-web:4.0.2.RELEASE'
+    compile 'org.springframework.security:spring-security-core:4.0.2.RELEASE'
+    compile 'org.springframework.security:spring-security-config:4.0.2.RELEASE'    
+
+    //aspectJ
+    compile 'org.aspectj:aspectjweaver:1.8.6'
+
     // Hibernate ORM
     compile "org.hibernate:hibernate-core:$hibernateVersion"
     compile "org.hibernate:hibernate-entitymanager:$hibernateVersion"
