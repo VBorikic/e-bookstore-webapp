@@ -1,4 +1,4 @@
-package bookstore.exceptions;
+package bookstore.remote.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

@@ -7,7 +7,6 @@ import bookstore.model.ArtikalPK;
 import bookstore.model.Autor;
 import bookstore.model.Izdavac;
 import bookstore.model.Knjiga;
-import bookstore.model.Korisnik;
 import bookstore.model.Narudzbenica;
 
 public interface BookStoreService {
@@ -36,9 +35,6 @@ public interface BookStoreService {
 
 	// uradjeno u res
 	public Artikal ubaciArtikal(Artikal a);
-
-	//// uradjeno u res
-	public Korisnik napraviKorisnika(Korisnik k);
 
 	// uradjeno u res
 	public Narudzbenica napraviNarudzbenicu(Narudzbenica n);

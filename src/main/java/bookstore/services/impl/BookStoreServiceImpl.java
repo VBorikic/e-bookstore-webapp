@@ -1,4 +1,4 @@
-package bookstore.services;
+package bookstore.services.impl;
 
 import java.util.List;
 
@@ -10,15 +10,14 @@ import bookstore.dao.ArtikalDao;
 import bookstore.dao.AutorDao;
 import bookstore.dao.IzdavacDao;
 import bookstore.dao.KnjigaDao;
-import bookstore.dao.KorisnikDao;
 import bookstore.dao.NarudzbenicaDao;
 import bookstore.model.Artikal;
 import bookstore.model.ArtikalPK;
 import bookstore.model.Autor;
 import bookstore.model.Izdavac;
 import bookstore.model.Knjiga;
-import bookstore.model.Korisnik;
 import bookstore.model.Narudzbenica;
+import bookstore.services.BookStoreService;
 
 public class BookStoreServiceImpl implements BookStoreService {
 
@@ -33,8 +32,6 @@ public class BookStoreServiceImpl implements BookStoreService {
 	protected ArtikalDao artikalDao;
 
 	protected NarudzbenicaDao narudzbenicaDao;
-
-	protected KorisnikDao korisnikDao;
 
 	// TO DO da se dodaju sve metode
 	@Override
@@ -84,13 +81,6 @@ public class BookStoreServiceImpl implements BookStoreService {
 	public Artikal vratiArtikal(ArtikalPK a_id) {
 		// TODO Auto-generated method stub
 		return artikalDao.vratiArtikal(a_id);
-	}
-
-	@Override
-	@Transactional
-	public Korisnik napraviKorisnika(Korisnik k) {
-		Long korisnik_id = korisnikDao.napraviKorisnika(k);
-		return korisnikDao.vratiKorisnika(korisnik_id);
 	}
 
 	@Override
@@ -160,14 +150,6 @@ public class BookStoreServiceImpl implements BookStoreService {
 
 	public void setNarudzbenicaDao(NarudzbenicaDao narudzbenicaDao) {
 		this.narudzbenicaDao = narudzbenicaDao;
-	}
-
-	public KorisnikDao getKorisnikDao() {
-		return korisnikDao;
-	}
-
-	public void setKorisnikDao(KorisnikDao korisnikDao) {
-		this.korisnikDao = korisnikDao;
 	}
 
 }

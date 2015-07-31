@@ -20,7 +20,7 @@ public class UserDetailServiceImpl implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
-		Korisnik korisnik = service.findByAccountName(name);
+		Korisnik korisnik = service.pronadjiKorisnikaPoKorisnickomImenu(name);
 		if (korisnik == null) {
 			throw new UsernameNotFoundException("no user found with " + name);
 		}

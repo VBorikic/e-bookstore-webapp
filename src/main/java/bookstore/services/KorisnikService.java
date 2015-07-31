@@ -4,10 +4,10 @@ import bookstore.model.Korisnik;
 
 public interface KorisnikService {
 
-	public Korisnik findAccount(Long id);
+	public Korisnik pronadjiKorisnika(Long id);
 
-	public Korisnik createAccount(Korisnik data);
+	public Korisnik napraviNovogKorisnika(Korisnik k);
 
-	public Korisnik findByAccountName(String username);
+	public Korisnik pronadjiKorisnikaPoKorisnickomImenu(String username);
 
 }

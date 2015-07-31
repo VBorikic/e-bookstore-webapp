@@ -2,14 +2,15 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
 
 	<!-- Business Services -->
-	
-	<bean id="bookStoreService" class="bookstore.services.BookStoreServiceImpl">
-        <property name="autorDao" ref="autorDao" />
-        <property name="izdavacDao" ref="izdavacDao" />
-            <property name="knjigaDao" ref="knjigaDao" />
-            <property name="korisnikDao" ref="korisnikDao" />
-            <property name="narudzbenicaDao" ref="narudzbenicaDao" />
-            <property name="artikalDao" ref="artikalDao" />
-    </bean>
 
+	<bean id="bookStoreService" class="bookstore.services.impl.BookStoreServiceImpl">
+		<property name="autorDao" ref="autorDao" />
+		<property name="izdavacDao" ref="izdavacDao" />
+		<property name="knjigaDao" ref="knjigaDao" />
+		<property name="narudzbenicaDao" ref="narudzbenicaDao" />
+		<property name="artikalDao" ref="artikalDao" />
+	</bean>
+	<bean id="korisnikService" class="bookstore.services.impl.KorisnikServiceImpl">
+		<property name="korisnikDao" ref="korisnikDao" />
+	</bean>
 </beans>
