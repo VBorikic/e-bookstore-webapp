@@ -25,17 +25,19 @@ public class Korisnik implements Serializable {
 
 	@Column
 	private String ime;
+
 	@Column
 	private String prezime;
 
 	@Column(name = "user_name")
-	private String userName;
+	private String username;
 
 	@Column
 	private boolean isAdmin;
 
 	@Column
 	private String password;
+
 	// ovako kako je kada se korisnik obrise narudzbenica ostaje radi cuvanja
 	// podataka o kupovini
 	@OneToMany(mappedBy = "korisnik", fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
@@ -70,12 +72,12 @@ public class Korisnik implements Serializable {
 		this.prezime = prezime;
 	}
 
-	public String getUserName() {
-		return userName;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUsername(String userName) {
+		this.username = userName;
 	}
 
 	public String getPassword() {
@@ -104,7 +106,7 @@ public class Korisnik implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Korisnik [korisnikID=" + korisnikID + ", ime=" + ime + ", prezime=" + prezime + ", userName=" + userName
+		return "Korisnik [korisnikID=" + korisnikID + ", ime=" + ime + ", prezime=" + prezime + ", userName=" + username
 				+ ", password=" + password + ", listaNarudzbenica=" + listaNarudzbenica + "]";
 	}
 

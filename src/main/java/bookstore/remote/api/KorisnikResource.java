@@ -18,7 +18,7 @@ public class KorisnikResource {
 
 	protected KorisnikService korisnikService;
 
-	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	@RequestMapping(value = "/korisnici", method = RequestMethod.POST)
 	public @ResponseBody Korisnik napraviKorisnika(@RequestBody Korisnik korisnik) {
 		// blog.setCreated(new Date());
 		// logger.debug("pravljenje korisnika");

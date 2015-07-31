@@ -2,6 +2,7 @@ package bookstore.services.impl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.transaction.annotation.Transactional;
 
 import bookstore.dao.KorisnikDao;
 import bookstore.model.Korisnik;
@@ -15,13 +16,15 @@ public class KorisnikServiceImpl implements KorisnikService {
 	protected KorisnikDao korisnikDao;
 
 	@Override
+	@Transactional
 	public Korisnik pronadjiKorisnika(Long id) {
 		return korisnikDao.vratiKorisnika(id);
 	}
 
 	@Override
+	@Transactional
 	public Korisnik napraviNovogKorisnika(Korisnik k) {
-		Korisnik korisnik = korisnikDao.vratiKorisnikaPoKorisnickomImenu(k.getUserName());
+		Korisnik korisnik = korisnikDao.vratiKorisnikaPoKorisnickomImenu(k.getUsername());
 		if (korisnik != null) {
 			throw new AccountExistsException("Korisnik vec postoji");
 		}
@@ -29,6 +32,7 @@ public class KorisnikServiceImpl implements KorisnikService {
 	}
 
 	@Override
+	@Transactional
 	public Korisnik pronadjiKorisnikaPoKorisnickomImenu(String username) {
 		return korisnikDao.vratiKorisnikaPoKorisnickomImenu(username);
 	}

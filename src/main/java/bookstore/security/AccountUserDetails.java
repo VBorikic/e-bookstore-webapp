@@ -41,7 +41,7 @@ public class AccountUserDetails implements UserDetails {
 
 	@Override
 	public String getUsername() {
-		return korisnik.getUserName();
+		return korisnik.getUsername();
 	}
 
 	@Override
