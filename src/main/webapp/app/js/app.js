@@ -12,6 +12,10 @@ angular.module('blogApp', ['services', 'controllers', 'ngRoute', 'ngResource','u
 				templateUrl: 'app/partials/prijava.html',
 				controller: 'prijavljivanjeController'
 			})
+			.when('/registracija', {
+				templateUrl: 'app/partials/registracija.html',
+				controller: 'registracijaController'
+			})
 			.when('/knjige', {
 				templateUrl: 'app/partials/knjige.html',
 				controller: 'knjigaController'

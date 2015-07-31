@@ -1,7 +1,35 @@
 var controllers = angular.module('controllers', []);
 
 controllers.controller('prijavljivanjeController', function($scope, $location, $http,
-		knjigaService) {
+		korisnikService,sesijaService) {
+	
+	//ovde mora da se proveri da li postoji user
+	$scope.login = function(){
+		//alert("radi registracija dugme"+ $scope.korisnik.password);
+		sesijaService.login($scope.korisnik);
+		alert("uspes"+$scope.korisnik.password);
+		$location.path("pocetna");
+	};
+});
+controllers.controller('registracijaController', function($scope, $location, $http,
+		korisnikService) {
+	//ovde mora da se rpvoeri da li postoji user pa ako da ne sme
+	$scope.korisnik = new korisnikService(); 
+	$scope.registracija = function(){
+		//alert("radi registracija dugme"+ $scope.korisnik.ime);
+		
+		  // posalji zahtev za liste autora i izdavaca
+		    $scope.korisnik.$save(function() {
+		      // on success
+		    	alert('Korisnik je sacuvan!');
+		    	$location.path('prijava');
+		    });
+		  
+	};
+});
+controllers.controller("LogovanjeController",function($scope,sesijaService){
+	$scope.isLogedIn = sesijaService.isLogedIn;
+	$scope.logout = sesijaService.logout;
 	
 });
 
