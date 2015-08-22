@@ -35,15 +35,15 @@ public class KorisnikDaoImpl implements KorisnikDao {
 
 	@Override
 	public Korisnik vratiKorisnikaPoKorisnickomImenu(String username) {
-
+		System.out.println("Pre" + username);
 		List<Korisnik> korisnici = sessionFactory.getCurrentSession()
-				.createQuery("SELECT k FROM Korisnik k WHERE k.username=" + username).list();
+				.createQuery("SELECT k FROM Korisnik k WHERE k.username='" + username + "'").list();
+		System.out.println("Posle" + username);
 		// query.setParameter(1, username);
 		// List<Korisnik> korisnici = query.getResultList();
 		if (korisnici.size() == 0) {
 			return null;
-		}
-		else {
+		} else {
 			return korisnici.get(0);
 		}
 	}
