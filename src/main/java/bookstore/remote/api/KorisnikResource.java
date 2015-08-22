@@ -22,6 +22,7 @@ public class KorisnikResource {
 	public @ResponseBody Korisnik napraviKorisnika(@RequestBody Korisnik korisnik) {
 		// blog.setCreated(new Date());
 		// logger.debug("pravljenje korisnika");
+		System.out.println("Dobijeno od klijenta" + korisnik.getPrezime());
 		return korisnikService.napraviNovogKorisnika(korisnik);
 	}
 

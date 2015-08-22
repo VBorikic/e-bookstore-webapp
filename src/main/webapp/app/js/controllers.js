@@ -16,9 +16,8 @@ controllers.controller('registracijaController', function($scope, $location, $ht
 	//ovde mora da se rpvoeri da li postoji user pa ako da ne sme
 	$scope.korisnik = new korisnikService(); 
 	$scope.registracija = function(){
-		//alert("radi registracija dugme"+ $scope.korisnik.ime);
+		alert("radi registracija dugme"+ $scope.korisnik.userName);
 		
-		  // posalji zahtev za liste autora i izdavaca
 		    $scope.korisnik.$save(function() {
 		      // on success
 		    	alert('Korisnik je sacuvan!');

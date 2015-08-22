@@ -24,6 +24,7 @@ public class KorisnikServiceImpl implements KorisnikService {
 	@Override
 	@Transactional
 	public Korisnik napraviNovogKorisnika(Korisnik k) {
+		System.out.println("Uzeto od korisnika" + k.getUsername());
 		Korisnik korisnik = korisnikDao.vratiKorisnikaPoKorisnickomImenu(k.getUsername());
 		if (korisnik != null) {
 			throw new AccountExistsException("Korisnik vec postoji");

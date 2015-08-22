@@ -25,6 +25,7 @@ services.factory('autoriService', function($resource){
 });
 services.factory('korisnikService', function($resource){
 	return $resource('service/korisnici/:korisnikId',{korisnikId: '@korisnikId'});
+	
 });
 
 services.factory('sesijaService', function(){
