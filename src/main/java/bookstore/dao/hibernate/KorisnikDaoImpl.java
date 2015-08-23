@@ -2,24 +2,22 @@ package bookstore.dao.hibernate;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
-
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 import bookstore.dao.KorisnikDao;
 import bookstore.model.Korisnik;
 
+@Component
 public class KorisnikDaoImpl implements KorisnikDao {
 	Logger logger = LoggerFactory.getLogger(AutorDaoImpl.class);
 
 	protected SessionFactory sessionFactory;
 
-	@PersistenceContext
-	private EntityManager em;
+	// @PersistenceContext
+	// private EntityManager em;
 
 	@Override
 	public Korisnik napraviKorisnika(Korisnik k) {
@@ -43,15 +41,16 @@ public class KorisnikDaoImpl implements KorisnikDao {
 		// List<Korisnik> korisnici = query.getResultList();
 		if (korisnici.size() == 0) {
 			return null;
-		} else {
+		}
+		else {
 			return korisnici.get(0);
 		}
 	}
 
 	@Override
 	public List<Korisnik> vratiSveKorisnike() {
-		Query query = em.createQuery("SELECT k FROM Korisnik k");
-		return query.getResultList();
+		return sessionFactory.getCurrentSession().createQuery("SELECT k FROM Korisnik k").list();
+		// return query.getResultList();
 	}
 
 	public SessionFactory getSessionFactory() {

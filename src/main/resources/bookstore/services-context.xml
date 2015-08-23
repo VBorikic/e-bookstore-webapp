@@ -10,7 +10,7 @@
 		<property name="narudzbenicaDao" ref="narudzbenicaDao" />
 		<property name="artikalDao" ref="artikalDao" />
 	</bean>
-	<bean id="korisnikService" class="bookstore.services.impl.KorisnikServiceImpl">
-		<property name="korisnikDao" ref="korisnikDao" />
-	</bean>
+<!-- 	<bean id="korisnikService" class="bookstore.services.impl.KorisnikServiceImpl"> -->
+<!-- 		<property name="korisnikDao" ref="korisnikDao" /> -->
+<!-- 	</bean> -->
 </beans>

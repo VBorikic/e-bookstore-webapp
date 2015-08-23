@@ -10,11 +10,6 @@ gradle-app.setting
 
 # Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
 !gradle-wrapper.jar
-
-#ignore specific properties file
-src/main/resources/bookstore/application.properties
-
-
 *.class
 
 # Package Files #

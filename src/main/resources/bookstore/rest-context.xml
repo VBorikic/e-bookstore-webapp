@@ -12,7 +12,7 @@
 	<bean id="knjigaResource" class="bookstore.remote.api.KnjigaResource">
 		<property name="bookStoreService" ref="bookStoreService" />
 	</bean>
-	<bean id="korisnikResource" class="bookstore.remote.api.KorisnikResource">
-		<property name="korisnikService" ref="korisnikService" />
-	</bean>
+<!-- 	<bean id="korisnikResource" class="bookstore.remote.api.KorisnikResource"> -->
+<!-- 		<property name="korisnikService" ref="korisnikService" /> -->
+<!-- 	</bean> -->
 </beans>

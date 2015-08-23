@@ -2,6 +2,7 @@ package bookstore.services.impl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import bookstore.dao.KorisnikDao;
@@ -9,6 +10,7 @@ import bookstore.model.Korisnik;
 import bookstore.services.KorisnikService;
 import bookstore.services.exceptions.AccountExistsException;
 
+@Service
 public class KorisnikServiceImpl implements KorisnikService {
 
 	Logger logger = LoggerFactory.getLogger(KorisnikServiceImpl.class);
