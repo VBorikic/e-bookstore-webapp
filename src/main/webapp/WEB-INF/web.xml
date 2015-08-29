@@ -4,7 +4,10 @@
 	<!-- Context Parameters -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:application-context.xml</param-value>
+		<param-value>
+		classpath:application-context.xml
+		classpath:security-context.xml
+		</param-value>
 	</context-param>
 
 	<!-- Listeners -->
@@ -28,5 +31,14 @@
 		<url-pattern>/service/*</url-pattern>
 	</servlet-mapping>
 
+	<!--Hook into spring security -->
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
 
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
 </web-app>
