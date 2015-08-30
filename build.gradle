@@ -66,6 +66,10 @@ dependencies {
     testCompile "junit:junit:$junitVersion"
     testCompile "org.mockito:mockito-all:$mockitoVersion"
     
+    
+    //za google books API
+     compile 'com.google.apis:google-api-services-books:v1-rev72-1.20.0'
+    
 }
 
 configurations {

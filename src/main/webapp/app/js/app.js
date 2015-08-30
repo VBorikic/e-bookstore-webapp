@@ -8,6 +8,10 @@ angular.module('blogApp', ['services', 'controllers', 'ngRoute', 'ngResource','u
 				templateUrl: 'app/partials/pocetna.html',
 				controller: 'knjigaController'
 			})
+			.when('/pretragaGoogleBooks', {
+				templateUrl: 'app/partials/pretragaGoogleBooksApi.html',
+				controller: 'pretragaController'
+			})
 			.when('/prijava', {
 				templateUrl: 'app/partials/prijava.html',
 				controller: 'prijavljivanjeController'

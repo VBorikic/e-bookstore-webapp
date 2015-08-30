@@ -1,5 +1,8 @@
 var controllers = angular.module('controllers', []);
 
+
+
+
 controllers.controller('prijavljivanjeController', function($scope, $location, $http,
 		korisnikService,sesijaService) {
 	
@@ -107,3 +110,25 @@ controllers.controller('CarouselSlideController', function ($scope,knjigaService
 	  
 	  $scope.knjige = knjigaService.query();
 	});
+controllers.controller('pretragaController', function ($scope,$http) {
+	  //cuvanje izmena
+	 $scope.pretraga = function(){
+		
+		// alert('Pozvano');
+		 $http.get('https://www.googleapis.com/books/v1/volumes?q=inauthor:'+$scope.pisac.ime+'+'+$scope.pisac.prezime+'&key=AIzaSyBBIVptarwDSWM4BrZQaYZNI_ors8QMtLs').
+		    success(function(data, status, headers, config) {
+		   // alert('Uspeh');
+		      $scope.titles = data.items;
+		    }).
+		    error(function(data, status, headers, config) {
+		      // log error
+		    	alert('nesto ne valja');
+		    });
+		// $scope.title = rezultat.volumeInfo.title;
+		// alert ('uzeta vrednost'+ $scope.title );
+		// $scope.pisac.resenje = $scope.pisac.ime;
+	 };
+	});
+
+
+

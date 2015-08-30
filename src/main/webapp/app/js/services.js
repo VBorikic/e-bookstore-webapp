@@ -27,7 +27,13 @@ services.factory('korisnikService', function($resource){
 	return $resource('service/korisnici/:korisnikId',{korisnikId: '@korisnikId'});
 	
 });
-
+//services.factory('pretragaService', function($resource){
+//	var pretraga={};
+//	pretraga.pretrazi = function(data){
+//		 return $resource('service/https://www.googleapis.com/books/v1/volumes?q=inauthor:'+data.ime+'+'+data.prezime+'&key=AIzaSyBBIVptarwDSWM4BrZQaYZNI_ors8QMtLs');
+//	};
+	
+//});
 services.factory('sesijaService', function(){
 	var session={};
 	session.login = function(data){

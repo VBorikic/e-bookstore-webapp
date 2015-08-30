@@ -1,0 +1,59 @@
+<div ng-controller="pretragaController">
+<form class="form-horizontal" role="form" ng-submit="pretraga()">
+
+    <div class="form-group">
+  <label for="ime" class="col-sm-2 control-label">Ime pisca:</label>
+  <div class="col-sm-10">
+    <input type="text" ng-model="pisac.ime" class="form-control" id="ime" placeholder="Ime pisca"/>
+  </div>
+</div>
+
+<div class="form-group">
+  <label for="prezime" class="col-sm-2 control-label">Prezime pisca:</label>
+  <div class="col-sm-10">
+    <input type="text" ng-model="pisac.prezime" class="form-control" id="prezime" placeholder="Prezime pisca"/>
+  </div>
+</div>
+<br>
+<div class="form-group">
+  <div class="col-sm-offset-2 col-sm-10">
+    <input type="submit" class="btn btn-primary" value="pretrazi"/>
+  </div>
+</div>
+<br>
+<!-- 
+ <div>
+    <ul ng-repeat="title in titles">
+      <li>{{title.volumeInfo.title}}</li>
+    </ul>
+  </div>
+   -->
+  <div ng-show="titles.length > 0">
+   <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Naziv knjige</th>
+                    <th>Godina izdavanja</th>
+                    <th>Online links</th>
+                </tr>
+            </thead>
+            <tbody>
+              <!--   <tr dir-paginate="title in titles"> -->
+               <tr ng-repeat="title in titles">
+                    <td>{{title.volumeInfo.title}}</td>
+                   <td>{{title.volumeInfo.publishedDate}}</td>
+                     <td> <a href="{{title.volumeInfo.infoLink}}">vise informacija</a></td>
+                   
+                  
+                </tr>
+            </tbody>
+        </table>
+          <dir-pagination-controls
+        max-size="5"
+        direction-links="true"
+        boundary-links="true" >
+    </dir-pagination-controls>
+</div>
+
+</form>
+</div>
