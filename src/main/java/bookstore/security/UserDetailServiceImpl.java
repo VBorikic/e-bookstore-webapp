@@ -22,7 +22,7 @@ public class UserDetailServiceImpl implements UserDetailsService {
 	public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
 		Korisnik korisnik = service.pronadjiKorisnikaPoKorisnickomImenu(name);
 		if (korisnik == null) {
-			throw new UsernameNotFoundException("no user found with " + name);
+			throw new UsernameNotFoundException("No user found with " + name);
 		}
 		return new AccountUserDetails(korisnik);
 	}

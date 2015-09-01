@@ -22,15 +22,29 @@ public class AccountUserDetails implements UserDetails {
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
+
+		ArrayList<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+
 		GrantedAuthority authority = new GrantedAuthority() {
 			@Override
 			public String getAuthority() {
 				return "USER";
 			}
 		};
-
-		ArrayList<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 		authorities.add(authority);
+
+		// proveri da li je i admin i dodaj ADMIN rolu ako jeste
+		if (korisnik.isAdmin()) {
+			GrantedAuthority authorityAdmin = new GrantedAuthority() {
+				@Override
+				public String getAuthority() {
+					return "ADMIN";
+				}
+			};
+
+			authorities.add(authorityAdmin);
+		}
+
 		return authorities;
 	}
 

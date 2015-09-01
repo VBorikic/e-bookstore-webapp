@@ -34,10 +34,20 @@ services.factory('korisnikService', function($resource){
 //	};
 	
 //});
-services.factory('sesijaService', function(){
+services.factory('sesijaService', function($http){
 	var session={};
 	session.login = function(data){
-		 localStorage.setItem("session",data);
+//		 localStorage.setItem("session",data);
+		alert("pozvana login f-ja");
+        return $http.post("/bookstore/login", "username=" + data.userName +
+                "&password=" + data.password, {
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                } ).then(function(data) {
+                    alert("login successful");
+                    localStorage.setItem("session", {});
+                }, function(data) {
+                    alert("error logging in");
+                });
 	};
 	
 	session.logout=function(){

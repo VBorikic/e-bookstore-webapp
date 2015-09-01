@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
@@ -32,8 +33,25 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 
 	@Override
+
+	public void configure(WebSecurity web) throws Exception {
+		web.ignoring().antMatchers("/lib/**", "/app/**"); // #3
+	}
+
+	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.csrf().disable().formLogin().successHandler(authSuccess).failureHandler(authFailure).and()
-				.authorizeRequests().antMatchers("/**").authenticated();
+
+		// http.csrf().disable().authorizeRequests().antMatchers("/", "/signin", "/korisnici").permitAll() // #4
+		// .antMatchers("/knjige").hasRole("USER") // #6
+		// .antMatchers("/admin/**").hasRole("ADMIN") // #6
+		// .anyRequest().authenticated() // 7
+		// .and().formLogin() // #8
+		// .permitAll() // #5
+		// ;
+		// OD Chrisa
+		http.csrf().disable().exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and().formLogin()
+				.successHandler(authSuccess).failureHandler(authFailure).and().authorizeRequests()
+				.antMatchers("/", "/signin").permitAll().antMatchers("/**").authenticated();
+
 	}
 }

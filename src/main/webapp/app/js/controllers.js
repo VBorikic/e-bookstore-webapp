@@ -9,9 +9,13 @@ controllers.controller('prijavljivanjeController', function($scope, $location, $
 	//ovde mora da se proveri da li postoji user
 	$scope.login = function(){
 		//alert("radi registracija dugme"+ $scope.korisnik.password);
-		sesijaService.login($scope.korisnik);
-		alert("uspes"+$scope.korisnik.password);
-		$location.path("pocetna");
+//		sesijaService.login($scope.korisnik);
+		sesijaService.login($scope.korisnik).then(function() {
+// $state.go("home");
+             $location.path("pocetna");
+         });
+//		alert("uspes"+$scope.korisnik.password);
+//		$location.path("pocetna");
 	};
 });
 controllers.controller('registracijaController', function($scope, $location, $http,
