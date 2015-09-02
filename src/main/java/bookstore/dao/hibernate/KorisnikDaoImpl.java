@@ -49,7 +49,7 @@ public class KorisnikDaoImpl implements KorisnikDao {
 
 	@Override
 	public List<Korisnik> vratiSveKorisnike() {
-		return sessionFactory.getCurrentSession().createQuery("SELECT k FROM Korisnik k").list();
+		return (List<Korisnik>) sessionFactory.getCurrentSession().createQuery("from Korisnik").list();
 		// return query.getResultList();
 	}
 

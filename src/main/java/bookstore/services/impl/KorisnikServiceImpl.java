@@ -1,5 +1,7 @@
 package bookstore.services.impl;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,5 +50,11 @@ public class KorisnikServiceImpl implements KorisnikService {
 
 	public void setKorisnikDao(KorisnikDao korisnikDao) {
 		this.korisnikDao = korisnikDao;
+	}
+
+	@Override
+	@Transactional
+	public List<Korisnik> vratiSveKorisnike() {
+		return korisnikDao.vratiSveKorisnike();
 	}
 }

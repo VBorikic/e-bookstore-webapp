@@ -1,0 +1,43 @@
+
+<!-- <div class="col-sm-9 col-md-10 main"> -->
+<div ng-controller="korpaController">
+
+	<div class="page-header">
+		<h3>Odabrane knjige za kupovinu</h3>
+	</div>
+
+	<div ng-show="artikli.length > 0">
+		<br>
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>Naziv knjige</th>
+					<th>Autor</th>
+					<th>Cena Knjige</th>
+					<th>Kolicina</th>
+					<th>Cena</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="artikal in artikli">
+					<td>{{artikal.knjiga.naziv}}</td>
+					<td>{{artikal.knjiga.autor.ime}} {{artikal.knjiga.autor.prezime}}</td>
+					<td>{{artikal.knjiga.cena}}</td>
+					<td>{{artikal.brojKupljenihKnjiga}}</td>
+					<td>{{artikal.brojKupljenihKnjiga * artikal.knjiga.cena}}</td>
+					<td><a class="btn btn-danger" href="" ng-click="ukloniArtikal($index)">Ukloni</a></td>
+
+				</tr>
+
+			</tbody>
+		</table>
+		<button type="button" class="btn btn-primary center-block" ng-click="kupi()">Kupi knjige</button>
+	</div>
+	<div ng-hide="artikli.length > 0">Nema odabranih knjiga za kupovinu.</div>
+
+
+</div>
+
+
+<!-- </div> -->
+<!--/row-->

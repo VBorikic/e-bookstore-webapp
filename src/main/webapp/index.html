@@ -55,15 +55,16 @@
 				<ul class="nav navbar-nav">
 
 					<li class="active"><a href="#/knjige">Knjige</a></li>
+					<li class="active" ng-show="isLogedIn()"><a href="#/korpa">Korpa za kupovinu</a></li>
 					<li class="active"><a href="#/pretragaGoogleBooks">Google books</a></li>
-					<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pretraga <span class="caret"></span></a>
-						<ul class="dropdown-menu" role="menu">
-							<li><a href="pretragaKnjige">Po knjigama</a></li>
-							<li><a href="pretragaPisci">Po piscima</a></li>
+<!-- 					<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pretraga <span class="caret"></span></a> -->
+<!-- 						<ul class="dropdown-menu" role="menu"> -->
+<!-- 							<li><a href="pretragaKnjige">Po knjigama</a></li> -->
+<!-- 							<li><a href="pretragaPisci">Po piscima</a></li> -->
 
-						</ul></li>
-					<li><a href="biografija">Biografije pisaca</a></li>
-					<li><a href="iznajmljivanje">Iznajmljivanje</a></li>
+<!-- 						</ul></li> -->
+<!-- 					<li><a href="biografija">Biografije pisaca</a></li> -->
+<!-- 					<li><a href="iznajmljivanje">Iznajmljivanje</a></li> -->
 					
 					
 					<li ng-hide="isLogedIn()"><a href="#/prijava">Log in</a></li>
@@ -122,9 +123,6 @@
 
 			<h1 style="color: white">Knjizara</h1>
 			<p style="color: white">Lako i brzo proverite da li imamo knjigu koju tražite.</p>
-			<p>
-				<a class="btn btn-primary btn-lg" href="oNama.html" role="button">O nama &raquo;</a>
-			</p>
 
 		</div>
 	</div>
@@ -154,7 +152,7 @@
 
 		<div ng-view></div>
 		<footer>
-			<p>&copy; Company 2014</p>
+			<p>&copy; Knowledge Limited 2015.</p>
 		</footer>
 	</div>
 

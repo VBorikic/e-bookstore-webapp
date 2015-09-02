@@ -7,6 +7,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 /**
  * Created by Chris on 10/26/14.
@@ -48,10 +49,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		// .and().formLogin() // #8
 		// .permitAll() // #5
 		// ;
+
 		// OD Chrisa
 		http.csrf().disable().exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and().formLogin()
-				.successHandler(authSuccess).failureHandler(authFailure).and().authorizeRequests()
-				.antMatchers("/", "/signin").permitAll().antMatchers("/**").authenticated();
+				.successHandler(authSuccess).failureHandler(authFailure).and().logout()
+				.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).deleteCookies("JSESSIONID")
+				.invalidateHttpSession(true).and().authorizeRequests().antMatchers("/", "/login", "/register")
+				.permitAll().antMatchers("/admin/**").hasRole("ADMIN").anyRequest().authenticated()
+				.antMatchers("/knjige/**").hasRole("USER").anyRequest().authenticated();
 
 	}
 }

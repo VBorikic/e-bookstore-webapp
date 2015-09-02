@@ -4,11 +4,13 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import bookstore.model.Artikal;
 import bookstore.model.Autor;
 import bookstore.model.Izdavac;
 import bookstore.services.BookStoreService;
@@ -29,6 +31,12 @@ public class BookStoreResource {
 	@RequestMapping(value = "/izdavaci", method = RequestMethod.GET)
 	public @ResponseBody List<Izdavac> vratiSveIzdavace() {
 		return bookStoreService.vratiSveIzdavace();
+	}
+
+	@RequestMapping(value = "/narudzbenica", method = RequestMethod.POST)
+	public @ResponseBody void kreirajNarudzbenicu(@RequestBody List<Artikal> listaArtikala) {
+		// TODO kreirati narudbenicu i sacuvati u bazu
+		System.out.println("Stigli artikli");
 	}
 	//
 	// @RequestMapping(method = RequestMethod.POST)

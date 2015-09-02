@@ -6,45 +6,70 @@ var controllers = angular.module('controllers', []);
 controllers.controller('prijavljivanjeController', function($scope, $location, $http,
 		korisnikService,sesijaService) {
 	
-	//ovde mora da se proveri da li postoji user
+	// ovde mora da se proveri da li postoji user
 	$scope.login = function(){
-		//alert("radi registracija dugme"+ $scope.korisnik.password);
-//		sesijaService.login($scope.korisnik);
+		// alert("radi registracija dugme"+ $scope.korisnik.password);
+// sesijaService.login($scope.korisnik);
 		sesijaService.login($scope.korisnik).then(function() {
-// $state.go("home");
+			//vrati podatke o korisniku, TODO
+//			$scope.korisnik = korisnikService.query();
              $location.path("pocetna");
          });
-//		alert("uspes"+$scope.korisnik.password);
-//		$location.path("pocetna");
+// alert("uspes"+$scope.korisnik.password);
 	};
 });
 controllers.controller('registracijaController', function($scope, $location, $http,
 		korisnikService) {
-	//ovde mora da se rpvoeri da li postoji user pa ako da ne sme
-	$scope.korisnik = new korisnikService(); 
+	// ovde mora da se rpvoeri da li postoji user pa ako da ne sme
+// $scope.korisnik = new korisnikService();
+	$scope.korisnik = {};
 	$scope.registracija = function(){
-		alert("radi registracija dugme"+ $scope.korisnik.userName);
+// alert("radi registracija dugme"+ $scope.korisnik.username);
 		
-		    $scope.korisnik.$save(function() {
-		      // on success
-		    	alert('Korisnik je sacuvan!');
-		    	$location.path('prijava');
-		    });
+		$http.post("service/register", $scope.korisnik ).then(function(data) {
+            alert("registrovanje successful");
+            localStorage.setItem("session", {});
+            $location.path('prijava');
+        }, function(data) {
+        	alert("registrovanje greska!!!");
+});
+//	
+// $scope.korisnik.$save(function() {
+// // on success
+// alert('Korisnik je sacuvan!');
+// $location.path('prijava');
+// });
 		  
 	};
 });
+
 controllers.controller("LogovanjeController",function($scope,sesijaService){
 	$scope.isLogedIn = sesijaService.isLogedIn;
 	$scope.logout = sesijaService.logout;
 	
 });
 
+//controllers.controller("korpaController",function($scope,sesijaService){
+//    $scope.removeItem = function(index) {
+//       localstorage.getItem("korpa").splice(index, 1);
+//    };
+//
+////    $scope.total = function() {
+////        var total = 0;
+////        angular.forEach($scope.invoice.items, function(item) {
+////            total += item.qty * item.cost;
+////        })
+////
+////        return total;
+////    };
+//	
+//});
+
 controllers.controller('knjigaController', function($scope, $location, $http,
 		knjigaService) {
 	$scope.knjige = knjigaService.query();	
 	console.log('knjige');
 	console.log($scope.knjige);
-	
 	
 	$scope.obrisiKnjigu = function(knjiga){
 		$http.delete('service/knjige/'+knjiga.isbn).
@@ -59,12 +84,35 @@ controllers.controller('knjigaController', function($scope, $location, $http,
 });
 
 controllers.controller('knjigaDetaljiController', function($scope, $location, $routeParams,
-			knjigaService) {
+			knjigaService,korpaService) {
 		$scope.isbn = $routeParams.isbn;
-		console.log('trazim knjigu');
+		$scope.brojKnjiga = 1;
+//		console.log('trazim knjigu');
 		$scope.knjiga = knjigaService.get({isbn:$scope.isbn}, function (){
 			console.log('vracena knjiga');
 			});
+		console.log($scope.knjiga);
+		$scope.dodajUKorpu = function(){
+			var artikal = {
+			               brojKupljenihKnjiga : $scope.brojKnjiga,
+			               knjiga : $scope.knjiga
+			};
+			korpaService.dodajUKorpu(artikal);
+		}
+});
+
+controllers.controller('korpaController', function($scope, $location,
+		korpaService) {
+	
+	$scope.artikli = korpaService.prikaziArtikle();
+	$scope.kupi = function(){
+		korpaService.kupiKnjige();
+		
+	}
+	$scope.ukloniArtikal = function(index){
+		korpaService.ukloniArtikal(index);
+	};
+	//TODO brisanje
 });
 
 controllers.controller('knjigaNovaController', function($scope, $location,
@@ -96,10 +144,10 @@ controllers.controller('knjigaIzmenaController', function($scope, $location, $ro
 	  $scope.autori = autoriService.query();
 	  $scope.izdavaci = izdavaciService.query();
 	  
-	  //cuvanje izmena
+	  // cuvanje izmena
 	 $scope.izmeniKnjigu = function(){
 		 $scope.knjiga.$update(function() {
-		      //on success
+		      // on success
 			 alert('Knjiga je izmenjena!');
 		    	$location.path('admin/knjige');
 		    }); 
@@ -115,7 +163,7 @@ controllers.controller('CarouselSlideController', function ($scope,knjigaService
 	  $scope.knjige = knjigaService.query();
 	});
 controllers.controller('pretragaController', function ($scope,$http) {
-	  //cuvanje izmena
+	  // cuvanje izmena
 	 $scope.pretraga = function(){
 		
 		// alert('Pozvano');

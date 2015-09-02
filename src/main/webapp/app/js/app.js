@@ -20,6 +20,10 @@ angular.module('blogApp', ['services', 'controllers', 'ngRoute', 'ngResource','u
 				templateUrl: 'app/partials/registracija.html',
 				controller: 'registracijaController'
 			})
+			.when('/korpa', {
+				templateUrl: 'app/partials/korpa.html',
+				controller: 'korpaController'
+			})
 			.when('/knjige', {
 				templateUrl: 'app/partials/knjige.html',
 				controller: 'knjigaController'
