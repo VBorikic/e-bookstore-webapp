@@ -1,5 +1,6 @@
 package bookstore.remote.api;
 
+import java.util.Date;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -11,8 +12,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import bookstore.model.Artikal;
+import bookstore.model.ArtikalPK;
 import bookstore.model.Autor;
 import bookstore.model.Izdavac;
+import bookstore.model.Narudzbenica;
 import bookstore.services.BookStoreService;
 
 @RestController
@@ -36,7 +39,24 @@ public class BookStoreResource {
 	@RequestMapping(value = "/narudzbenica", method = RequestMethod.POST)
 	public @ResponseBody void kreirajNarudzbenicu(@RequestBody List<Artikal> listaArtikala) {
 		// TODO kreirati narudbenicu i sacuvati u bazu
-		System.out.println("Stigli artikli");
+		Narudzbenica n = bookStoreService.napraviNarudzbenicu(new Narudzbenica());
+		double ukupnaCena = 0.0;
+		for (int i = 0; i < listaArtikala.size(); i++) {
+
+			Artikal artikal = listaArtikala.get(i);
+			ukupnaCena += artikal.getBrojKupljenihKnjiga() * artikal.getKnjiga().getCena();
+
+			ArtikalPK apk = new ArtikalPK(n.getNarudzbenicaID(), artikal.getKnjiga().getISBN());
+			apk.setArtikalId(Long.valueOf(i + 1));
+
+			artikal.setNarudzbenica(n);
+			artikal.setArtikalPK(apk);
+		}
+		n.setSumaCene(ukupnaCena);
+		n.setListaArtikala(listaArtikala);
+		n.setDatum(new Date());
+		bookStoreService.sacuvajNarudzbenicu(n);
+		// System.out.println("Stigli artikli");
 	}
 	//
 	// @RequestMapping(method = RequestMethod.POST)

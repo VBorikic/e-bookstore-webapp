@@ -11,13 +11,21 @@ import bookstore.model.Narudzbenica;
 public class NarudzbenicaDaoImpl implements NarudzbenicaDao {
 
 	Logger logger = LoggerFactory.getLogger(AutorDaoImpl.class);
+
 	protected SessionFactory sessionFactory;
+
 	protected KorisnikDao korisnikDao;
 
 	@Override
 	public Long napraviNarudzbenicu(Narudzbenica n) {
 		// TODO Auto-generated method stub
 		return (Long) sessionFactory.getCurrentSession().save(n);
+	}
+
+	@Override
+	public void izmeniNarudzbenicu(Narudzbenica n) {
+		// TODO Auto-generated method stub
+		sessionFactory.getCurrentSession().saveOrUpdate(n);
 	}
 
 	@Override

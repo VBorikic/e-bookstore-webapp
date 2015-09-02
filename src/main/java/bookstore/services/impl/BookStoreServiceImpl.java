@@ -86,8 +86,23 @@ public class BookStoreServiceImpl implements BookStoreService {
 	@Override
 	@Transactional
 	public Narudzbenica napraviNarudzbenicu(Narudzbenica n) {
+		// for (Artikal artikal : n.getListaArtikala()) {
+		// artikalDao.ubaciArtikal(artikal);
+		// logger.debug("ubacen artikal");
+		// }
 		Long na_id = narudzbenicaDao.napraviNarudzbenicu(n);
 		return narudzbenicaDao.vratiNarudzbenicu(na_id);
+	}
+
+	@Override
+	@Transactional
+	public void sacuvajNarudzbenicu(Narudzbenica n) {
+		for (Artikal artikal : n.getListaArtikala()) {
+			artikalDao.ubaciArtikal(artikal);
+			logger.debug("ubacen artikal");
+		}
+		narudzbenicaDao.izmeniNarudzbenicu(n);
+
 	}
 
 	@Override

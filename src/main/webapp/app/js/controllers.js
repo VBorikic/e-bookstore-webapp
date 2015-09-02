@@ -43,9 +43,12 @@ controllers.controller('registracijaController', function($scope, $location, $ht
 	};
 });
 
-controllers.controller("LogovanjeController",function($scope,sesijaService){
+controllers.controller("LogovanjeController",function($scope,sesijaService,korpaService){
 	$scope.isLogedIn = sesijaService.isLogedIn;
-	$scope.logout = sesijaService.logout;
+	$scope.logout = function(){
+		korpaService.isprazniKorpu();
+		sesijaService.logout();
+	}; 
 	
 });
 
@@ -98,6 +101,7 @@ controllers.controller('knjigaDetaljiController', function($scope, $location, $r
 			               knjiga : $scope.knjiga
 			};
 			korpaService.dodajUKorpu(artikal);
+			alert("Artikal dodat u korpu :) ");
 		}
 });
 

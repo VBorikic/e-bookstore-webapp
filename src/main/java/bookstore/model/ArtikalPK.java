@@ -5,11 +5,11 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import javax.persistence.GeneratedValue;
 
 @Embeddable
 public class ArtikalPK implements Serializable {
 	private static final long serialVersionUID = 1L;
+
 	@Basic(optional = false)
 	@Column(name = "narudzbenica_id")
 	private Long narudzbenicaID;
@@ -18,10 +18,10 @@ public class ArtikalPK implements Serializable {
 	@Column(name = "knjiga_id")
 	private Long knjigaID;
 
-	@Basic(optional = false)
+	// @Basic(optional = false)
 	@Column(name = "artikal_id")
 	// ovo pogeldaj ako bude problema
-	@GeneratedValue
+	// @GeneratedValue
 	private Long artikalId;
 
 	public ArtikalPK(Long narudzbenicaID, Long knjigaID) {
@@ -88,17 +88,20 @@ public class ArtikalPK implements Serializable {
 		if (artikalId == null) {
 			if (other.artikalId != null)
 				return false;
-		} else if (!artikalId.equals(other.artikalId))
+		}
+		else if (!artikalId.equals(other.artikalId))
 			return false;
 		if (knjigaID == null) {
 			if (other.knjigaID != null)
 				return false;
-		} else if (!knjigaID.equals(other.knjigaID))
+		}
+		else if (!knjigaID.equals(other.knjigaID))
 			return false;
 		if (narudzbenicaID == null) {
 			if (other.narudzbenicaID != null)
 				return false;
-		} else if (!narudzbenicaID.equals(other.narudzbenicaID))
+		}
+		else if (!narudzbenicaID.equals(other.narudzbenicaID))
 			return false;
 		return true;
 	}

@@ -2,6 +2,7 @@ package bookstore.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -34,6 +35,9 @@ public class Narudzbenica implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "korisnik_id")
 	private Korisnik korisnik;
+
+	@Column
+	private Date datum;
 
 	// ubaci Korisnika
 
@@ -73,6 +77,14 @@ public class Narudzbenica implements Serializable {
 
 	public void setKorisnikDao(Korisnik korisnikDao) {
 		this.korisnik = korisnikDao;
+	}
+	
+	public Date getDatum() {
+		return datum;
+	}
+
+	public void setDatum(Date datum) {
+		this.datum = datum;
 	}
 
 	@Override

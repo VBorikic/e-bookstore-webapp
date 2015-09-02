@@ -57,11 +57,16 @@ services.factory('korpaService', function($http) {
 		korpa.splice(index, 1);
 	};
 	
+	var funkcijaIsprazniKorpu = function() {
+		korpa = [];
+	};
+	
 	return {
 		dodajUKorpu : funkcijaDodaj,
 		prikaziArtikle : funkcijaVratiArtikle,
 		ukloniArtikal : funkcijaIzbrisiArtikal,
-		kupiKnjige : funkcijaKupi
+		kupiKnjige : funkcijaKupi,
+		isprazniKorpu : funkcijaIsprazniKorpu
 	};
 });
 

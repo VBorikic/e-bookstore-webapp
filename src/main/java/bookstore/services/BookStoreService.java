@@ -39,6 +39,8 @@ public interface BookStoreService {
 	// uradjeno u res
 	public Narudzbenica napraviNarudzbenicu(Narudzbenica n);
 
+	public void sacuvajNarudzbenicu(Narudzbenica n);
+
 	// uradjeno u res
 	public Narudzbenica vratiNarudzbenicu(Long nar_id);
 }

@@ -13,6 +13,7 @@ import javax.persistence.Table;
 @Table(name = "artikal")
 public class Artikal implements Serializable {
 	private static final long serialVersionUID = 1L;
+
 	@EmbeddedId
 	protected ArtikalPK artikalPK;
 
