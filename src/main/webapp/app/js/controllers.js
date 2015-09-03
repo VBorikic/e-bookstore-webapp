@@ -4,22 +4,30 @@ var controllers = angular.module('controllers', []);
 
 
 controllers.controller('prijavljivanjeController', function($scope, $location, $http,
-		korisnikService,sesijaService) {
+		sesijaService) {
 	
 	// ovde mora da se proveri da li postoji user
 	$scope.login = function(){
 		// alert("radi registracija dugme"+ $scope.korisnik.password);
-// sesijaService.login($scope.korisnik);
-		sesijaService.login($scope.korisnik).then(function() {
+ sesijaService.login($scope.korisnik);
+//	$scope.korisnikIzBaze =	sesijaService.login($scope.korisnik).then(function() {
 			//vrati podatke o korisniku, TODO
-//			$scope.korisnik = korisnikService.query();
+//			$scope.korisnikIzBaze = korisnikService.getKorisnik($scope.korisnik.userName);
+//			$http.get('/bookstore/service/korisnici/'+$scope.korisnik.userName).
+//		    success(function(data) {
+//		    alert('Uspeh');
+//		    $scope.korisnikIzBaze = data.items;
+//		    }).
+//		    error(function(data) {
+//		      // log error
+//		    	alert('nesto ne valja');
+//		    });
              $location.path("pocetna");
-         });
+//         });
 // alert("uspes"+$scope.korisnik.password);
 	};
 });
-controllers.controller('registracijaController', function($scope, $location, $http,
-		korisnikService) {
+controllers.controller('registracijaController', function($scope, $location, $http) {
 	// ovde mora da se rpvoeri da li postoji user pa ako da ne sme
 // $scope.korisnik = new korisnikService();
 	$scope.korisnik = {};
@@ -45,6 +53,8 @@ controllers.controller('registracijaController', function($scope, $location, $ht
 
 controllers.controller("LogovanjeController",function($scope,sesijaService,korpaService){
 	$scope.isLogedIn = sesijaService.isLogedIn;
+	$scope.isAdmin = sesijaService.isAdmin;
+	$scope.korisnik = sesijaService.getKorisnik;
 	$scope.logout = function(){
 		korpaService.isprazniKorpu();
 		sesijaService.logout();

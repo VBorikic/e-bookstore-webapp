@@ -25,12 +25,25 @@ services.factory('izdavaciService', function($resource) {
 services.factory('autoriService', function($resource) {
 	return $resource('service/autori');
 });
-services.factory('korisnikService', function($resource) {
-	return $resource('service/korisnici/:username', {
-		username : '@username'
-	});
-
-});
+// services.factory('korisnikService', function($http) {
+// // return $resource('service/korisnici/:username', {
+// // username : '@username'
+// // });
+//
+// // return $http.get("/bookstore/service/korisnici").
+// // then(function(data){
+// // alert("Narucivanje uspesno!");
+// // });
+//	
+// var funkcijaVratiKorisnika = function(username) {
+// return $http.get("/bookstore/service/korisnici/".username);
+// };
+//	
+// return {
+//		
+// getKorisnik : funkcijaVratiKorisnika
+// };
+// });
 
 services.factory('korpaService', function($http) {
 	var korpa = [];
@@ -94,18 +107,27 @@ services.factory('korpaService', function($http) {
  });
 services.factory('sesijaService', function($http, $resource) {
 	var session = {};
-
-	session.login = function(data) {
+	var korisnik =  {};
+	session.login = function(user) {
 		// localStorage.setItem("session",data);
-		alert("pozvana login f-ja");
+//		alert("pozvana login f-ja");
+		var username = user.userName;
 		return $http.post("/bookstore/login",
-				"username=" + data.userName + "&password=" + data.password, {
+				"username=" + user.userName + "&password=" + user.password, {
 					headers : {
 						'Content-Type' : 'application/x-www-form-urlencoded'
 					}
-				}).then(function(data) {
-			alert("login successful");
+				}).then(function(username) {
+//			alert("login successful");
 			localStorage.setItem("session", {});
+		  $http.get('/bookstore/service/korisnici/'+user.userName).
+		    then(function(data) {
+		    alert('Ulogovani ste...');
+		    korisnik = data.data;
+		    }),
+		    (function(response) {
+		    	alert('nesto ne valja');
+		    });
 		}, function(data) {
 			alert("error logging in");
 		});
@@ -129,9 +151,15 @@ services.factory('sesijaService', function($http, $resource) {
 	};
 
 	session.isLogedIn = function() {
-
 		return localStorage.getItem("session") !== null;
 	}
+	session.isAdmin = function() {
+		return korisnik.admin;
+	}
+	session.getKorisnik = function() {
+		return korisnik;
+	}	
+	
 	return session;
 });
 // servisi.factory('knjigaService', function($resource) {

@@ -54,9 +54,10 @@
 
 				<ul class="nav navbar-nav">
 
-					<li class="active"><a href="#/knjige">Knjige</a></li>
-					<li class="active" ng-show="isLogedIn()"><a href="#/korpa">Korpa za kupovinu</a></li>
-					<li class="active"><a href="#/pretragaGoogleBooks">Google books</a></li>
+					<li ng-hide="isAdmin()"><a href="#/knjige">Knjige</a></li>
+					<li ng-show="isAdmin()"><a href="#/admin/knjige">Admin panel</a></li>
+					<li  ng-show="isLogedIn() && (!isAdmin())"><a href="#/korpa">Korpa za kupovinu</a></li>
+					<li ><a href="#/pretragaGoogleBooks">Google books</a></li>
 <!-- 					<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pretraga <span class="caret"></span></a> -->
 <!-- 						<ul class="dropdown-menu" role="menu"> -->
 <!-- 							<li><a href="pretragaKnjige">Po knjigama</a></li> -->

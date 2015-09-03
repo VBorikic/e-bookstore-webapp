@@ -24,5 +24,6 @@
 	</bean>
 	<context:component-scan base-package="bookstore.security" />
 	<context:component-scan base-package="bookstore.services.impl" />
+	<context:component-scan base-package="bookstore.remote.api" />
 
 </beans>

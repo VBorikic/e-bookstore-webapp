@@ -14,6 +14,7 @@ import bookstore.services.KorisnikService;
 import bookstore.services.exceptions.AccountExistsException;
 
 @Service
+// @Scope("prototype")
 public class KorisnikServiceImpl implements KorisnikService {
 
 	Logger logger = LoggerFactory.getLogger(KorisnikServiceImpl.class);
@@ -57,4 +58,5 @@ public class KorisnikServiceImpl implements KorisnikService {
 	public List<Korisnik> vratiSveKorisnike() {
 		return korisnikDao.vratiSveKorisnike();
 	}
+
 }

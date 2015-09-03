@@ -13,4 +13,7 @@
 <!-- 	<bean id="korisnikService" class="bookstore.services.impl.KorisnikServiceImpl"> -->
 <!-- 		<property name="korisnikDao" ref="korisnikDao" /> -->
 <!-- 	</bean> -->
+    <bean id="userService" class="bookstore.services.impl.UserServiceImpl">
+            <property name="korisnikDao" ref="korisnikDao" />
+    </bean>
 </beans>

@@ -14,5 +14,6 @@
 	</bean>
 	<bean id="korisnikResource" class="bookstore.remote.api.KorisnikResource">
 <!-- 		<property name="korisnikService" ref="korisnikService" /> -->
+    <property name="userService" ref="userService" />
 	</bean>
 </beans>
