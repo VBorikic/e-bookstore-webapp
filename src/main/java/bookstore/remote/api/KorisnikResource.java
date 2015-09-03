@@ -36,13 +36,13 @@ public class KorisnikResource {
 		return korisnikService.vratiSveKorisnike();
 	}
 
-	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	@RequestMapping(value = "/registracija", method = RequestMethod.POST)
 	@PreAuthorize("permitAll")
 	public @ResponseBody Korisnik napraviKorisnika(@RequestBody Korisnik korisnik) {
 		// blog.setCreated(new Date());
 		// logger.debug("pravljenje korisnika");
-		System.out.println("Dobijeno od klijenta" + korisnik.getPrezime());
-		return korisnikService.napraviNovogKorisnika(korisnik);
+		System.out.println("Dobijeno od klijenta " + korisnik.getUsername());
+		return userService.napraviNovogKorisnika(korisnik);
 	}
 
 	@RequestMapping(value = "/korisnici/{username}", method = RequestMethod.GET)

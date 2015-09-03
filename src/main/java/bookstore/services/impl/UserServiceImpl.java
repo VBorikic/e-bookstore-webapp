@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import bookstore.dao.KorisnikDao;
 import bookstore.model.Korisnik;
 import bookstore.services.UserService;
+import bookstore.services.exceptions.AccountExistsException;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -21,6 +22,17 @@ public class UserServiceImpl implements UserService {
 			System.out.println("korisnik dao je null");
 		}
 		return korisnikDao.vratiKorisnikaPoKorisnickomImenu(username);
+	}
+
+	@Override
+	@Transactional
+	public Korisnik napraviNovogKorisnika(Korisnik k) {
+		System.out.println("Uzeto od korisnika" + k.getUsername());
+		Korisnik korisnik = korisnikDao.vratiKorisnikaPoKorisnickomImenu(k.getUsername());
+		if (korisnik != null) {
+			throw new AccountExistsException("Korisnik vec postoji");
+		}
+		return korisnikDao.napraviKorisnika(k);
 	}
 
 	public KorisnikDao getKorisnikDao() {

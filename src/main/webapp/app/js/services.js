@@ -111,16 +111,16 @@ services.factory('sesijaService', function($http, $resource) {
 	session.login = function(user) {
 		// localStorage.setItem("session",data);
 //		alert("pozvana login f-ja");
-		var username = user.userName;
+		var username = user.username;
 		return $http.post("/bookstore/login",
-				"username=" + user.userName + "&password=" + user.password, {
+				"username=" + user.username + "&password=" + user.password, {
 					headers : {
 						'Content-Type' : 'application/x-www-form-urlencoded'
 					}
 				}).then(function(username) {
 //			alert("login successful");
 			localStorage.setItem("session", {});
-		  $http.get('/bookstore/service/korisnici/'+user.userName).
+		  $http.get('/bookstore/service/korisnici/'+user.username).
 		    then(function(data) {
 		    alert('Ulogovani ste...');
 		    korisnik = data.data;

@@ -27,16 +27,17 @@ controllers.controller('prijavljivanjeController', function($scope, $location, $
 // alert("uspes"+$scope.korisnik.password);
 	};
 });
-controllers.controller('registracijaController', function($scope, $location, $http) {
+controllers.controller('registracijaController', function($scope, $location, $http, sesijaService) {
 	// ovde mora da se rpvoeri da li postoji user pa ako da ne sme
 // $scope.korisnik = new korisnikService();
 	$scope.korisnik = {};
 	$scope.registracija = function(){
 // alert("radi registracija dugme"+ $scope.korisnik.username);
 		
-		$http.post("service/register", $scope.korisnik ).then(function(data) {
+		$http.post("service/registracija", $scope.korisnik ).then(function(data) {
             alert("registrovanje successful");
             localStorage.setItem("session", {});
+//            sesijaService.login($scope.korisnik);
             $location.path('prijava');
         }, function(data) {
         	alert("registrovanje greska!!!");

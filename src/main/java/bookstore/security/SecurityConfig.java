@@ -7,7 +7,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 /**
  * Created by Chris on 10/26/14.
@@ -51,12 +50,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		// ;
 
 		// OD Chrisa
-		http.csrf().disable().exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and().formLogin()
-				.successHandler(authSuccess).failureHandler(authFailure).and().logout()
-				.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).deleteCookies("JSESSIONID")
-				.invalidateHttpSession(true).and().authorizeRequests().antMatchers("/", "/login", "/register")
-				.permitAll().antMatchers("/admin/**").hasRole("ADMIN").anyRequest().authenticated()
-				.antMatchers("/knjige/**").hasRole("USER").anyRequest().authenticated();
+		// http.csrf().disable().exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and().formLogin()
+		// .successHandler(authSuccess).failureHandler(authFailure)
+		// .and().logout()
+		// .logoutRequestMatcher(new AntPathRequestMatcher("/logout")).deleteCookies("JSESSIONID")
+		// .invalidateHttpSession(true)
+		// .and().authorizeRequests().antMatchers("/", "/login", "/register")
+		// .permitAll().antMatchers("/admin/**").hasRole("ADMIN").anyRequest().authenticated()
+		// .antMatchers("/knjige/**").hasRole("USER").anyRequest().authenticated();
 
+		http.csrf().disable().authorizeRequests().antMatchers("/", "/login", "/service/registracija").permitAll() // #4
+				.antMatchers("/knjige").hasRole("USER") // #6
+				.antMatchers("/admin/**").hasRole("ADMIN") // #6
+				.anyRequest().authenticated() // 7
+				.and().formLogin().successHandler(authSuccess).failureHandler(authFailure). // #8
+				permitAll().and().logout().deleteCookies("JSESSIONID").invalidateHttpSession(true) // #5
+				;
 	}
 }
