@@ -1,36 +1,35 @@
 
-<div ng-controller="knjigaController"> 
+<div ng-controller="knjigaController">
 
-<div class="page-header">
-    <h3>Knjige</h3>
-</div>
+	<div class="page-header">
+		<h3>Knjige</h3>
+	</div>
 
-<div ng-show="knjige.length > 0">
- <div class="container" >
- 
- 
-  <form class="form-inline">
-        <div class="form-group">
-            <label >Pretraga</label>
-            <input type="text" ng-model="search" class="form-control" placeholder="Search">
-        </div>
-    </form>
-    
-    
-    <div class="row row-centered">
-    <br>
-    <div dir-paginate="knjiga in knjige|filter:search|itemsPerPage:3" class="col-xs-4 col-centered col-min"  >
-    
-   
-        <a href="#knjige/{{knjiga.isbn}}/view" style="text-decoration:none; text-align: center;" class="thumbnail plain" style="text-align: center;">
-        
-    <img ng-src="{{knjiga.slika}}" height="150" width="100" alt="">
-    <h3>{{knjiga.naziv}}</h3>
-    Godina izdanja :{{knjiga.godinaIzdanja}}<br/>
-    Autor :{{knjiga.autor.ime}}{{knjiga.autor.prezime}}<br/>
-    <i class="icon-globe"></i> Cena :{{knjiga.cena}}
-</a>
-        <!-- 
+	<div ng-show="knjige.length > 0">
+		<div class="container">
+
+
+			<form class="form-inline">
+				<div class="form-group">
+					<label>Pretraga</label> <input type="text" ng-model="search" class="form-control" placeholder="Search">
+				</div>
+			</form>
+
+
+			<div class="row row-centered">
+				<br>
+				<div dir-paginate="knjiga in knjige|filter:search|itemsPerPage:3" class="col-xs-4 col-centered col-min">
+
+
+					<a href="#knjige/{{knjiga.isbn}}/view" style="text-decoration: none; text-align: center;" class="thumbnail plain" style="text-align: center;"> <img ng-src="{{knjiga.slika}}" height="150" width="100" alt="">
+						<h3>{{knjiga.naziv}}</h3>
+						 Godina izdanja :{{knjiga.godinaIzdanja}}
+						 <br /> 
+						 Autor :{{knjiga.autor.ime}} {{knjiga.autor.prezime}}
+						 <br />
+						  <i class="icon-globe"></i> {{knjiga.cena | currency:" RSD "}}
+					</a>
+					<!-- 
        
             <div class="row">
                 <div class="col-md-6"><h3><a href="#knjige/{{knjiga.isbn}}/view">{{knjiga.naziv}}</a></h3></div>
@@ -44,24 +43,20 @@
             </div>
        
          -->
-         
-        <hr />
-       
-       
-        </div>
-        </div>
-    </div>
-    <br>
-    <dir-pagination-controls
-        max-size="5"
-        direction-links="true"
-        boundary-links="true" >
-    </dir-pagination-controls>
 
-  
-    
-    
-</div>
+					<hr />
 
-<div ng-hide="knjige.length > 0">Nema knjiga.</div>
+
+				</div>
+			</div>
+		</div>
+		<br>
+		<dir-pagination-controls max-size="5" direction-links="true" boundary-links="true"> </dir-pagination-controls>
+
+
+
+
+	</div>
+
+	<div ng-hide="knjige.length > 0">Nema knjiga.</div>
 </div>

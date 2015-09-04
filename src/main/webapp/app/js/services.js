@@ -25,6 +25,10 @@ services.factory('izdavaciService', function($resource) {
 services.factory('autoriService', function($resource) {
 	return $resource('service/autori');
 });
+
+services.factory('narudzbineService', function($resource) {
+	return $resource('service/narudzbenice');
+});
 // services.factory('korisnikService', function($http) {
 // // return $resource('service/korisnici/:username', {
 // // username : '@username'
@@ -58,7 +62,7 @@ services.factory('korpaService', function($http) {
 	};
 	
 	var funkcijaKupi = function() {
-		return $http.post("/bookstore/service/narudzbenica",
+		return $http.post("/bookstore/service/narudzbenice",
 				korpa).then(function(data) {
 			alert("Narucivanje uspesno!");
 		}, function(data) {

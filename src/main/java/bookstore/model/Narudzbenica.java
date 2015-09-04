@@ -16,6 +16,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "narudzbenica")
 public class Narudzbenica implements Serializable {
@@ -29,6 +31,7 @@ public class Narudzbenica implements Serializable {
 	@Column(name = "suma_cene")
 	private double sumaCene;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "narudzbenica", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	List<Artikal> listaArtikala = new ArrayList<>();
 
@@ -78,7 +81,7 @@ public class Narudzbenica implements Serializable {
 	public void setKorisnikDao(Korisnik korisnikDao) {
 		this.korisnik = korisnikDao;
 	}
-	
+
 	public Date getDatum() {
 		return datum;
 	}

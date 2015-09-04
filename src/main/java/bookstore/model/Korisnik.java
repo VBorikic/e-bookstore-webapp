@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "korisnik")
 public class Korisnik implements Serializable {
@@ -40,6 +42,7 @@ public class Korisnik implements Serializable {
 
 	// ovako kako je kada se korisnik obrise narudzbenica ostaje radi cuvanja
 	// podataka o kupovini
+	@JsonIgnore
 	@OneToMany(mappedBy = "korisnik", fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	private List<Narudzbenica> listaNarudzbenica = new ArrayList<>();
 

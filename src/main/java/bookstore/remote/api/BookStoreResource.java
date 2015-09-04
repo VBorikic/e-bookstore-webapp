@@ -36,7 +36,7 @@ public class BookStoreResource {
 		return bookStoreService.vratiSveIzdavace();
 	}
 
-	@RequestMapping(value = "/narudzbenica", method = RequestMethod.POST)
+	@RequestMapping(value = "/narudzbenice", method = RequestMethod.POST)
 	public @ResponseBody void kreirajNarudzbenicu(@RequestBody List<Artikal> listaArtikala) {
 		// TODO kreirati narudbenicu i sacuvati u bazu
 		Narudzbenica n = bookStoreService.napraviNarudzbenicu(new Narudzbenica());
@@ -57,6 +57,11 @@ public class BookStoreResource {
 		n.setDatum(new Date());
 		bookStoreService.sacuvajNarudzbenicu(n);
 		// System.out.println("Stigli artikli");
+	}
+
+	@RequestMapping(value = "/narudzbenice", method = RequestMethod.GET)
+	public @ResponseBody List<Narudzbenica> vratiSveNarudzbenice() {
+		return bookStoreService.vratiSveNarudzbenice();
 	}
 	//
 	// @RequestMapping(method = RequestMethod.POST)

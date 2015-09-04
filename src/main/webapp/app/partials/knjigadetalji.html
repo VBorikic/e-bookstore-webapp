@@ -11,7 +11,7 @@
 			<div class="col-xs-4 col-centered">
 				<h2>{{knjiga.naziv}}</h2>
 				<h3>Autor :{{knjiga.autor.ime}} {{knjiga.autor.prezime}}</h3>
-				<h3>Cena : {{knjiga.cena}}</h3>
+				<h3>Cena : {{knjiga.cena | currency:" RSD " }}</h3>
 				<h3>Zanr:{{knjiga.zanr}}</h3>
 				<br /> <br />
 

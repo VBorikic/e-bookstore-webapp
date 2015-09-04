@@ -32,6 +32,10 @@ angular.module('blogApp', ['services', 'controllers', 'ngRoute', 'ngResource','u
 				templateUrl: 'app/partials/knjigadetalji.html',
 				controller: 'knjigaDetaljiController'
 			})
+			.when('/admin/narudzbine', {
+				templateUrl: 'app/partials/admin_narudzbine.html',
+				controller: 'narudzbineController'
+			})
 			.when('/admin/knjige', {
 				templateUrl: 'app/partials/knjige_admin.html',
 				controller: 'knjigaController'

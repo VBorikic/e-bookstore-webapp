@@ -114,6 +114,12 @@ public class BookStoreServiceImpl implements BookStoreService {
 
 	@Override
 	@Transactional
+	public List<Narudzbenica> vratiSveNarudzbenice() {
+		return narudzbenicaDao.vratiSveNarudzbenice();
+	}
+
+	@Override
+	@Transactional
 	public List<Knjiga> vratiSveKnjige() {
 		// TODO Auto-generated method stub
 		return knjigaDao.vratiSveKnjige();

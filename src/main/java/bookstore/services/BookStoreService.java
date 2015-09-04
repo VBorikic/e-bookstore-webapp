@@ -43,4 +43,6 @@ public interface BookStoreService {
 
 	// uradjeno u res
 	public Narudzbenica vratiNarudzbenicu(Long nar_id);
+
+	public List<Narudzbenica> vratiSveNarudzbenice();
 }

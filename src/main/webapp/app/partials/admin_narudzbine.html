@@ -1,0 +1,46 @@
+
+<div class="container-fluid">
+
+	<div class="row row-offcanvas row-offcanvas-left">
+
+		<div ng-include="'app/partials/admin_panel.html'"></div>
+
+		<div class="col-sm-9 col-md-10 main">
+			<div ng-controller="narudzbineController">
+
+				<div class="page-header">
+					<h3>Narudzbine</h3>
+				</div>
+
+				<div ng-show="narudzbine.length > 0">
+					<br>
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<th>ID narudzbine</th>
+								<th>Datum</th>
+								<th>Ukupna cena</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr dir-paginate="narudzbina in narudzbine|itemsPerPage:10">
+								<td>{{narudzbina.narudzbenicaID}}</td>
+								<td>{{narudzbina.datum  | date:'yyyy-MM-dd HH:mm '}}</td>
+								<td>{{narudzbina.sumaCene | currency:"RSD "}}</td>
+							</tr>
+						</tbody>
+					</table>
+					<br>
+					<dir-pagination-controls max-size="5" direction-links="true" boundary-links="true"> </dir-pagination-controls>
+				</div>
+				<div ng-hide="narudzbine.length > 0">Nema naruzbina...</div>
+
+
+			</div>
+
+
+		</div>
+		<!--/row-->
+	</div>
+</div>
+<!--/.container-->

@@ -170,6 +170,13 @@ controllers.controller('knjigaIzmenaController', function($scope, $location, $ro
 	 };
 });
 
+controllers.controller('narudzbineController', function($scope, $location,
+		narudzbineService) {
+	  $scope.narudzbine = narudzbineService.query();
+	  console.log($scope.narudzbine);
+});
+
+
 controllers.controller('CarouselSlideController', function ($scope,knjigaService) {
 	  $scope.myInterval = 2000;
 	  $scope.noWrapSlides = false;

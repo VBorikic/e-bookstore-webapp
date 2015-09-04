@@ -1,5 +1,7 @@
 package bookstore.dao.hibernate;
 
+import java.util.List;
+
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,6 +34,11 @@ public class NarudzbenicaDaoImpl implements NarudzbenicaDao {
 	public Narudzbenica vratiNarudzbenicu(Long nar_id) {
 		// TODO Auto-generated method stub
 		return (Narudzbenica) sessionFactory.getCurrentSession().get(Narudzbenica.class, nar_id);
+	}
+
+	@Override
+	public List<Narudzbenica> vratiSveNarudzbenice() {
+		return (List<Narudzbenica>) sessionFactory.getCurrentSession().createQuery("from Narudzbenica").list();
 	}
 
 	// settet i getter
