@@ -13,7 +13,8 @@
 		<property name="bookStoreService" ref="bookStoreService" />
 	</bean>
 	<bean id="korisnikResource" class="bookstore.remote.api.KorisnikResource">
-<!-- 		<property name="korisnikService" ref="korisnikService" /> -->
-    <property name="userService" ref="userService" />
+		<!-- <property name="korisnikService" ref="korisnikService" /> -->
+		<property name="userService" ref="userService" />
+		<property name="mailSender" ref="mailSender" />
 	</bean>
 </beans>

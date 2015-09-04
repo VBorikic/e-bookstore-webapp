@@ -33,6 +33,10 @@ dependencies {
     //aspectJ
     compile 'org.aspectj:aspectjweaver:1.8.6'
 
+    //mail servis
+    compile 'javax.mail:mail:1.5.0-b01'
+  
+    
     // Hibernate ORM
     compile "org.hibernate:hibernate-core:$hibernateVersion"
     compile "org.hibernate:hibernate-entitymanager:$hibernateVersion"

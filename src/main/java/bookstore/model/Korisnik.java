@@ -31,6 +31,9 @@ public class Korisnik implements Serializable {
 	@Column
 	private String prezime;
 
+	@Column
+	private String mail;
+
 	@Column(name = "user_name")
 	private String username;
 
@@ -105,6 +108,14 @@ public class Korisnik implements Serializable {
 
 	public void setAdmin(boolean isAdmin) {
 		this.isAdmin = isAdmin;
+	}
+
+	public String getMail() {
+		return mail;
+	}
+
+	public void setMail(String mail) {
+		this.mail = mail;
 	}
 
 	@Override

@@ -6,5 +6,6 @@
 	<import resource="classpath:bookstore/services-context.xml" />
 
 	<import resource="classpath:bookstore/rest-context.xml" />
-
+	<import resource="classpath:Spring-Mail.xml" />
+    
 </beans>

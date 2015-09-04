@@ -5,6 +5,8 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,6 +32,9 @@ public class KorisnikResource {
 	// @Autowired
 	protected UserService userService;
 
+	@Autowired
+	private JavaMailSenderImpl mailSender;
+
 	@RequestMapping(value = "/korisnici", method = RequestMethod.GET)
 	@PreAuthorize("permitAll")
 	public @ResponseBody List<Korisnik> getAllKorisnici() {
@@ -39,10 +44,26 @@ public class KorisnikResource {
 	@RequestMapping(value = "/registracija", method = RequestMethod.POST)
 	@PreAuthorize("permitAll")
 	public @ResponseBody Korisnik napraviKorisnika(@RequestBody Korisnik korisnik) {
-		// blog.setCreated(new Date());
-		// logger.debug("pravljenje korisnika");
-		System.out.println("Dobijeno od klijenta " + korisnik.getUsername());
-		return userService.napraviNovogKorisnika(korisnik);
+		Korisnik k = userService.napraviNovogKorisnika(korisnik);
+
+		// send mail
+		SimpleMailMessage msg = new SimpleMailMessage();
+
+		msg.setTo(k.getMail());
+		msg.setFrom("vlada.borikic@gmail.com");
+		msg.setSubject("Dobrodosli!");
+		msg.setText("Dragi " + k.getIme() + " " + k.getPrezime()
+
+		+ ",\nHvala vam na registraciji u nasu knjizaru. " + "Nadamo se da cete biti zadovoljni nasim knjigama :)"
+				+ "\n\nKnowledge Limited Tim ");
+		try {
+			mailSender.send(msg);
+		}
+		catch (Exception ex) {
+			// simply log it and go on...
+			System.err.println(ex.getMessage());
+		}
+		return k;
 	}
 
 	@RequestMapping(value = "/korisnici/{username}", method = RequestMethod.GET)
@@ -66,5 +87,13 @@ public class KorisnikResource {
 
 	public void setUserService(UserService userService) {
 		this.userService = userService;
+	}
+
+	public JavaMailSenderImpl getMailSender() {
+		return mailSender;
+	}
+
+	public void setMailSender(JavaMailSenderImpl mailSender) {
+		this.mailSender = mailSender;
 	}
 }
