@@ -44,7 +44,7 @@ angular.module('blogApp', ['services', 'controllers', 'ngRoute', 'ngResource','u
 				templateUrl: 'app/partials/knjigaunos.html',
 				controller: 'knjigaNovaController'
 			})
-			.when('/knjige/statistika', { 
+			.when('/admin/knjige/statistika', { 
 				templateUrl: 'app/partials/statistika.html',
 				controller: 'statistikaController'
 			})
