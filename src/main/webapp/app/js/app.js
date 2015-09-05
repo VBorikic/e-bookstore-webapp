@@ -1,5 +1,5 @@
 
-angular.module('blogApp', ['services', 'controllers', 'ngRoute', 'ngResource','ui.bootstrap','angularUtils.directives.dirPagination'])
+angular.module('blogApp', ['services', 'controllers', 'ngRoute', 'ngResource','ui.bootstrap','angularUtils.directives.dirPagination','ng-fusioncharts'])
 	.config(
 		['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
@@ -43,6 +43,10 @@ angular.module('blogApp', ['services', 'controllers', 'ngRoute', 'ngResource','u
 			.when('/admin/knjige/nova', { 
 				templateUrl: 'app/partials/knjigaunos.html',
 				controller: 'knjigaNovaController'
+			})
+			.when('/knjige/statistika', { 
+				templateUrl: 'app/partials/statistika.html',
+				controller: 'statistikaController'
 			})
 			.when('/admin/knjige/:isbn/izmena', { 
 				templateUrl: 'app/partials/knjiga_izmena.html',
