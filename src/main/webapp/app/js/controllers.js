@@ -208,45 +208,48 @@ controllers.controller('statistikaController', function ($scope,knjigaService) {
 
 	   $scope.myDataSource = {
 		        chart: {
-		            caption: "Nase knjige i godine",
-		            subCaption: "kada su izdate knjige iz nasekolekcije",
-		            numberPrefix: "$"
+		            caption: "Nase knjige i cena",
+		            subCaption: "cena knjiga",
+		            numberPrefix: ""
 		        },
 	  
 		        data: [
 		               {
-		            label: "Bakersfield Central",
-		            value: "880000"
+		            label: "",
+		            value: "0"
 		        }, {
-		            label: "Garden Groove harbour",
-		            value: "730000"
+		            label: "",
+		            value: "0"
 		        }, {
-		            label: "Los Angeles Topanga",
-		            value: "590000"
-		        }, {
-		            label: "Compton-Rancho Dom",
-		            value: "520000"
-		        }, {
-		            label: "Daly City Serramonte",
-		            value: "330000"
+		            label: "",
+		            value: "0"
+		        },
+		        {
+		            label: "",
+		            value: "0"
 		        }
 		        ]
 		        
+		        
 		    };
 	  
-	   $scope.ajde = function() {
+	//   $scope.ajde = function() {
 		  
-		   /*
-		   $scope.knjige = knjigaService.query();
-		   
-		   angular.forEach($scope.knjige, function(value, key) {
-				  // this.push(key + ': ' + value);
-				   alert("radi"+value.naziv);
-				   $scope.myDataSource.data[key].label = value.naziv;
-				    $scope.myDataSource.data[key].value = value.godinaIzdanja;
-				 });
-			*/	 
-		  };
+		  $scope.knjige= knjigaService.query();
+		
+		  $scope.knjige.$promise.then(function (result) {
+			    $scope.knjige = result;
+			    angular.forEach($scope.knjige, function(value, key) {
+					 
+					  // alert("radi"+value.naziv);
+					   $scope.myDataSource.data[key].label = value.naziv;
+					    $scope.myDataSource.data[key].value = value.cena;
+					 });
+			});
+		  
+				
+				 
+		//  };
 		 
 	  
 	});
